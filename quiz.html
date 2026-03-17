@@ -50,13 +50,13 @@ function answer(type) {
 function showResult() {
     let result = document.getElementById("result");
 
-    if (score.spicy >= 2) {
+    if (score.spicy > score.classic && score.spicy > score.fancy && score.spicy > score.simple) {
         result.innerText = "🔥 You are a Spicy Burger!";
-    } else if (score.fancy >= 2) {
+    } else if (score.fancy > score.spicy && score.fancy > score.classic && score.fancy > score.simple) {
         result.innerText = "✨ You are a Gourmet Burger!";
-    } else if (score.simple >= 2) {
+    } else if (score.simple > score.spicy && score.simple > score.classic && score.simple > score.fancy) {
         result.innerText = "👍 You are a Simple Classic Burger!";
-    } else if (score.classic >= 2) {
+    } else {
         result.innerText = "🍔 You are a Classic Cheeseburger!";
     }
 }
