@@ -18,50 +18,88 @@
     </div>
 </div>
 
-<!-- TOP COMMUNITY PICK -->
+<!-- FEATURED -->
 
 <h2 class="section-title">⭐ Top Community Pick</h2>
 
-<div class="restaurants">
-    <div class="card">
-        <h3>Firefly Burger</h3>
-        <p>🔥 Highest rated by users this week</p>
-        <p>Rating: ★★★★★</p>
-        <img src="burger.jpg">
+<div class="featured">
+    <img src="burger.jpg">
+    <div>
+        <h2>Firefly Burger</h2>
+        <p>🔥 Most loved burger this week</p>
+        <p class="stars">★★★★★</p>
     </div>
 </div>
 
-<!-- USER REVIEWS -->
+<!-- ADD REVIEW -->
+
+<h2 class="section-title">📝 Add Your Review</h2>
+
+<div class="review-form">
+    <input type="text" id="username" placeholder="Your name">
+    <textarea id="reviewText" placeholder="Write your review..."></textarea>
+    <button onclick="addReview()">Post Review</button>
+</div>
+
+<!-- REVIEWS -->
 
 <h2 class="section-title">💬 Community Reviews</h2>
 
-<div class="restaurants">
+<div class="restaurants" id="reviews">
 
-    <div class="card">
-        <h3>@BurgerFan21</h3>
-        <p>"Firefly Burger has amazing service and the burgers are super juicy."</p>
-        <img src="burger.jpg">
+    <div class="review-card">
+        <div class="review-header">@BurgerFan21</div>
+        <div class="stars">★★★★★</div>
+        <p>Firefly Burger has amazing service and super juicy burgers.</p>
+        <button class="like-btn" onclick="like(this)">👍 Like (0)</button>
     </div>
 
-    <div class="card">
-        <h3>@FoodieMike</h3>
-        <p>"Five Guys is still my go-to. Simple but always hits."</p>
-        <img src="burger.jpg">
-    </div>
-
-    <div class="card">
-        <h3>@EatWithSam</h3>
-        <p>"Bodega Burgers surprised me. Really underrated spot."</p>
-        <img src="burger.jpg">
-    </div>
-
-    <div class="card">
-        <h3>@GrillMaster</h3>
-        <p>"Jack's burgers are decent but the fries are the best part."</p>
-        <img src="burger.jpg">
+    <div class="review-card">
+        <div class="review-header">@FoodieMike</div>
+        <div class="stars">★★★★☆</div>
+        <p>Five Guys is simple but always hits.</p>
+        <button class="like-btn" onclick="like(this)">👍 Like (0)</button>
     </div>
 
 </div>
+
+<!-- JS FOR INTERACTIVITY -->
+
+<script>
+function like(button) {
+    let count = button.innerText.match(/\d+/);
+    count = count ? parseInt(count[0]) : 0;
+    count++;
+    button.innerText = "👍 Like (" + count + ")";
+}
+
+function addReview() {
+    let user = document.getElementById("username").value;
+    let text = document.getElementById("reviewText").value;
+
+    if (user === "" || text === "") {
+        alert("Please fill in both fields");
+        return;
+    }
+
+    let container = document.getElementById("reviews");
+
+    let newReview = document.createElement("div");
+    newReview.className = "review-card";
+
+    newReview.innerHTML = `
+        <div class="review-header">@${user}</div>
+        <div class="stars">★★★★★</div>
+        <p>${text}</p>
+        <button class="like-btn" onclick="like(this)">👍 Like (0)</button>
+    `;
+
+    container.prepend(newReview);
+
+    document.getElementById("username").value = "";
+    document.getElementById("reviewText").value = "";
+}
+</script>
 
 </body>
 </html>
