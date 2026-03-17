@@ -1,86 +1,43 @@
-﻿<!DOCTYPE html>
-<html lang="en">
+<!DOCTYPE html>
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Build Your Burger</title>
-
-    <link rel="stylesheet" href="style.css">
+    <title>Build Your Meal</title>
+    <link rel="stylesheet" href="itm445.css">
 </head>
 
 <body>
 
-    <!-- NAVBAR -->
-    <header class="navbar">
-        <h2 class="logo">Burger Locator</h2>
-        <nav>
-            <a href="index.html">Home</a>
-            <a href="community.html">Community</a>
-            <a href="build.html">Build</a>
-        </nav>
-    </header>
+<div class="navbar">
+    <h2>Fast Food Burger Locator</h2>
+    <div class="navlinks">
+        <a href="index.html">Home</a>
+        <a href="results.html">Find Restaurants</a>
+        <a href="build.html">Build Your Meal</a>
+        <a href="quiz.html">Quiz</a>
+        <a href="community.html">Community</a>
+    </div>
+</div>
 
-    <div class="page-container">
+<h2 class="section-title">Build Your Burger</h2>
 
-        <!-- BUILD BURGER -->
-        <section class="card">
-            <h2>Build Your Own Burger 🍔</h2>
+<div class="restaurants">
 
-            <label><input type="checkbox" value="Beef"> Beef</label><br>
-            <label><input type="checkbox" value="Chicken"> Chicken</label><br>
-            <label><input type="checkbox" value="Cheese"> Cheese</label><br>
-            <label><input type="checkbox" value="Lettuce"> Lettuce</label><br>
-            <label><input type="checkbox" value="Bacon"> Bacon</label><br>
-
-            <button onclick="buildBurger()" class="btn">Create Burger</button>
-
-            <p id="burgerResult" class="result-text"></p>
-        </section>
-
-        <!-- QUIZ -->
-        <section class="card">
-            <h2>Burger Personality Quiz 🤔</h2>
-
-            <label for="flavor">Pick a flavor:</label>
-            <select id="flavor">
-                <option value="spicy">Spicy</option>
-                <option value="classic">Classic</option>
-                <option value="bbq">BBQ</option>
-            </select>
-
-            <button onclick="getResult()" class="btn">Get Result</button>
-
-            <p id="quizResult" class="result-text"></p>
-        </section>
-
+    <div class="card">
+        <h3>Choose Your Bun</h3>
+        <p>White / Whole Wheat / Brioche</p>
     </div>
 
-    <script>
-        function buildBurger() {
-            let selected = [];
-            let checkboxes = document.querySelectorAll("input[type=checkbox]:checked");
+    <div class="card">
+        <h3>Pick Your Protein</h3>
+        <p>Beef / Chicken / Veggie</p>
+    </div>
 
-            checkboxes.forEach(cb => selected.push(cb.value));
+    <div class="card">
+        <h3>Add Toppings</h3>
+        <p>Lettuce, Tomato, Cheese, Bacon</p>
+    </div>
 
-            document.getElementById("burgerResult").innerText =
-                "Your burger: " + selected.join(", ");
-        }
-
-        function getResult() {
-            let flavor = document.getElementById("flavor").value;
-            let result = "";
-
-            if (flavor === "spicy") {
-                result = "You should try a Spicy Chicken Burger!";
-            } else if (flavor === "classic") {
-                result = "You are a Classic Cheeseburger person!";
-            } else {
-                result = "BBQ Bacon Burger is perfect for you!";
-            }
-
-            document.getElementById("quizResult").innerText = result;
-        }
-    </script>
+</div>
 
 </body>
 </html>
