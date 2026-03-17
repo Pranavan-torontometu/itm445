@@ -29,13 +29,14 @@
     <div>
         <h2>Firefly Burger</h2>
         <p>🔥 Most loved burger this week</p>
+
         <div class="stars">
-    <img src="itm445Star.png" class="star">
-    <img src="itm445Star.png" class="star">
-    <img src="itm445Star.png" class="star">
-    <img src="itm445Star.png" class="star">
-    <img src="itm445Star.png" class="star">
-</div>
+            <img src="itm445Star.png" class="star">
+            <img src="itm445Star.png" class="star">
+            <img src="itm445Star.png" class="star">
+            <img src="itm445Star.png" class="star">
+            <img src="itm445Star.png" class="star">
+        </div>
     </div>
 </div>
 
@@ -44,13 +45,16 @@
 <h2 class="section-title">📝 Add Your Review</h2>
 
 <div class="review-form">
+
+    <!-- STAR INPUT -->
     <div id="starRating">
-    <img src="itm445StarEmpty.png" class="star-input" data-value="1">
-    <img src="itm445StarEmpty.png" class="star-input" data-value="2">
-    <img src="itm445StarEmpty.png" class="star-input" data-value="3">
-    <img src="itm445StarEmpty.png" class="star-input" data-value="4">
-    <img src="itm445StarEmpty.png" class="star-input" data-value="5">
-</div>
+        <img src="itm445StarEmpty.png" class="star-input" data-value="1">
+        <img src="itm445StarEmpty.png" class="star-input" data-value="2">
+        <img src="itm445StarEmpty.png" class="star-input" data-value="3">
+        <img src="itm445StarEmpty.png" class="star-input" data-value="4">
+        <img src="itm445StarEmpty.png" class="star-input" data-value="5">
+    </div>
+
     <input type="text" id="username" placeholder="Your name">
     <textarea id="reviewText" placeholder="Write your review..."></textarea>
     <button onclick="addReview()">Post Review</button>
@@ -64,35 +68,65 @@
 
     <div class="review-card">
         <div class="review-header">@BurgerFan21</div>
-       <div class="stars">
-    <img src="itm445Star.png" class="star">
-    <img src="itm445Star.png" class="star">
-    <img src="itm445Star.png" class="star">
-    <img src="itm445Star.png" class="star">
-    <img src="itm445Star.png" class="star">
-</div>
+        <div class="stars">
+            <img src="itm445Star.png" class="star">
+            <img src="itm445Star.png" class="star">
+            <img src="itm445Star.png" class="star">
+            <img src="itm445Star.png" class="star">
+            <img src="itm445Star.png" class="star">
+        </div>
         <p>Firefly Burger has amazing service and super juicy burgers.</p>
         <button class="like-btn" onclick="like(this)">👍 Like (0)</button>
     </div>
 
     <div class="review-card">
         <div class="review-header">@FoodieMike</div>
-       <div class="stars">
-    <img src="itm445Star.png" class="star">
-    <img src="itm445Star.png" class="star">
-    <img src="itm445Star.png" class="star">
-    <img src="itm445Star.png" class="star">
-    <img src="itm445Star.png" class="star">
-</div>
+        <div class="stars">
+            <img src="itm445Star.png" class="star">
+            <img src="itm445Star.png" class="star">
+            <img src="itm445Star.png" class="star">
+            <img src="itm445Star.png" class="star">
+        </div>
         <p>Five Guys is simple but always hits.</p>
         <button class="like-btn" onclick="like(this)">👍 Like (0)</button>
     </div>
 
 </div>
 
-<!-- JS FOR INTERACTIVITY -->
+<!-- JS -->
 
 <script>
+let selectedRating = 0;
+
+const stars = document.querySelectorAll(".star-input");
+
+// HOVER EFFECT
+stars.forEach(star => {
+    star.addEventListener("mouseover", () => {
+        let val = star.getAttribute("data-value");
+        highlightStars(val);
+    });
+
+    // CLICK (LOCK RATING)
+    star.addEventListener("click", () => {
+        selectedRating = star.getAttribute("data-value");
+    });
+});
+
+// HIGHLIGHT FUNCTION
+function highlightStars(rating) {
+    stars.forEach(star => {
+        let val = star.getAttribute("data-value");
+
+        if (val <= rating) {
+            star.src = "itm445Star.png";
+        } else {
+            star.src = "itm445StarEmpty.png";
+        }
+    });
+}
+
+// LIKE BUTTON
 function like(button) {
     let count = button.innerText.match(/\d+/);
     count = count ? parseInt(count[0]) : 0;
@@ -100,12 +134,13 @@ function like(button) {
     button.innerText = "👍 Like (" + count + ")";
 }
 
+// ADD REVIEW
 function addReview() {
     let user = document.getElementById("username").value;
     let text = document.getElementById("reviewText").value;
 
-    if (user === "" || text === "") {
-        alert("Please fill in both fields");
+    if (user === "" || text === "" || selectedRating == 0) {
+        alert("Please fill in all fields and select a rating");
         return;
     }
 
@@ -114,23 +149,26 @@ function addReview() {
     let newReview = document.createElement("div");
     newReview.className = "review-card";
 
+    // GENERATE STARS BASED ON RATING
+    let starsHTML = "";
+    for (let i = 0; i < selectedRating; i++) {
+        starsHTML += `<img src="itm445Star.png" class="star">`;
+    }
+
     newReview.innerHTML = `
         <div class="review-header">@${user}</div>
-        <div class="stars">
-    <img src="itm445Star.png" class="star">
-    <img src="itm445Star.png" class="star">
-    <img src="itm445Star.png" class="star">
-    <img src="itm445Star.png" class="star">
-    <img src="itm445Star.png" class="star">
-</div>
+        <div class="stars">${starsHTML}</div>
         <p>${text}</p>
         <button class="like-btn" onclick="like(this)">👍 Like (0)</button>
     `;
 
     container.prepend(newReview);
 
+    // RESET FORM
     document.getElementById("username").value = "";
     document.getElementById("reviewText").value = "";
+    selectedRating = 0;
+    highlightStars(0);
 }
 </script>
 
