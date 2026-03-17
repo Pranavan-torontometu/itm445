@@ -312,3 +312,10 @@ body {
 .star-input:hover {
     transform: scale(1.2);
 }
+
+/* Fix stretched stars in featured top pick section */
+.featured .star {
+    width: 20px;   /* desired width */
+    height: auto;  /* keep original aspect ratio */
+    margin-right: 2px;
+}
