@@ -331,6 +331,6 @@ body {
 }
 
 .result-card .star {
-    width: 12px;
-    height: auto;
+    width: auto;
+    height: 10px;
 }
