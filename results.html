@@ -22,7 +22,7 @@
             <div class="results-list-header">
                 <h2>Results</h2>
                 <div class="filter-wrapper">
-                    <select id="filter-select" class="filter-dropdown">
+                    <select id="filter-select" class="filter-dropdown" onchange="sortCards(this.value)">
                         <option value="" disabled selected>Filter</option>
                         <option value="distance">Distance</option>
                         <option value="price">Price</option>
@@ -30,71 +30,103 @@
                     </select>
                 </div>
             </div>
-            <!-- CARD 1 -->
-            <div class="result-card">
-                <img src="burger-icon.jpg" class="result-icon">
-                <div class="result-info">
-                    <h4>Firefly Burger</h4>
-                    <div class="stars">
-                        <img src="itm445Star.png" class="star">
-                        <img src="itm445Star.png" class="star">
-                        <img src="itm445Star.png" class="star">
-                        <img src="itm445Star.png" class="star">
-                        <img src="itm445Star.png" class="star">
+
+            <!-- CARDS -->
+            <div id="cards-container">
+                <div class="result-card" data-distance="600" data-price="2" data-rating="3">
+                    <img src="burger-icon.jpg" class="result-icon">
+                    <div class="result-info">
+                        <h4>Firefly Burger</h4>
+                        <div class="stars">
+                            <img src="itm445Star.png" class="star">
+                            <img src="itm445Star.png" class="star">
+                            <img src="itm445Star.png" class="star">
+                        </div>
+                        <div class="card-meta">
+                            <span class="price-tag">$$</span>
+                            <span class="distance-tag">600m away</span>
+                        </div>
                     </div>
-                    <p>2km away</p>
                 </div>
-            </div>
-            <!-- CARD 2 -->
-            <div class="result-card">
-                <img src="burger-icon.jpg" class="result-icon">
-                <div class="result-info">
-                    <h4>Bodega Burgers</h4>
-                    <div class="stars">
-                        <img src="itm445Star.png" class="star">
-                        <img src="itm445Star.png" class="star">
-                        <img src="itm445Star.png" class="star">
-                        <img src="itm445Star.png" class="star">
-                        <img src="itm445Star.png" class="star">
+
+                <div class="result-card" data-distance="400" data-price="1" data-rating="3">
+                    <img src="burger-icon.jpg" class="result-icon">
+                    <div class="result-info">
+                        <h4>Bodega Burgers</h4>
+                        <div class="stars">
+                            <img src="itm445Star.png" class="star">
+                            <img src="itm445Star.png" class="star">
+                            <img src="itm445Star.png" class="star">
+                        </div>
+                        <div class="card-meta">
+                            <span class="price-tag">$</span>
+                            <span class="distance-tag">400m away</span>
+                        </div>
                     </div>
-                    <p>2km away</p>
                 </div>
-            </div>
-            <!-- CARD 3 -->
-            <div class="result-card">
-                <img src="burger-icon.jpg" class="result-icon">
-                <div class="result-info">
-                    <h4>Five Guys</h4>
-                    <div class="stars">
-                        <img src="itm445Star.png" class="star">
-                        <img src="itm445Star.png" class="star">
-                        <img src="itm445Star.png" class="star">
-                        <img src="itm445Star.png" class="star">
-                        <img src="itm445Star.png" class="star">
+
+                <div class="result-card" data-distance="500" data-price="1" data-rating="4">
+                    <img src="burger-icon.jpg" class="result-icon">
+                    <div class="result-info">
+                        <h4>Five Guys</h4>
+                        <div class="stars">
+                            <img src="itm445Star.png" class="star">
+                            <img src="itm445Star.png" class="star">
+                            <img src="itm445Star.png" class="star">
+                            <img src="itm445Star.png" class="star">
+                        </div>
+                        <div class="card-meta">
+                            <span class="price-tag">$</span>
+                            <span class="distance-tag">500m away</span>
+                        </div>
                     </div>
-                    <p>2km away</p>
                 </div>
-            </div>
-            <!-- CARD 4 -->
-            <div class="result-card">
-                <img src="burger-icon.jpg" class="result-icon">
-                <div class="result-info">
-                    <h4>Jack's</h4>
-                    <div class="stars">
-                        <img src="itm445Star.png" class="star">
-                        <img src="itm445Star.png" class="star">
-                        <img src="itm445Star.png" class="star">
-                        <img src="itm445Star.png" class="star">
-                        <img src="itm445Star.png" class="star">
+
+                <div class="result-card" data-distance="800" data-price="2" data-rating="5">
+                    <img src="burger-icon.jpg" class="result-icon">
+                    <div class="result-info">
+                        <h4>Jack's</h4>
+                        <div class="stars">
+                            <img src="itm445Star.png" class="star">
+                            <img src="itm445Star.png" class="star">
+                            <img src="itm445Star.png" class="star">
+                            <img src="itm445Star.png" class="star">
+                            <img src="itm445Star.png" class="star">
+                        </div>
+                        <div class="card-meta">
+                            <span class="price-tag">$$</span>
+                            <span class="distance-tag">800m away</span>
+                        </div>
                     </div>
-                    <p>2km away</p>
                 </div>
             </div>
         </div>
+
         <!-- MAP -->
         <div class="map">
             <img src="map.jpg">
         </div>
     </div>
+
+    <script>
+        function sortCards(filter) {
+            const container = document.getElementById('cards-container');
+            const cards = Array.from(container.querySelectorAll('.result-card'));
+
+            cards.sort((a, b) => {
+                if (filter === 'distance') {
+                    return parseInt(a.dataset.distance) - parseInt(b.dataset.distance);
+                } else if (filter === 'price') {
+                    return parseInt(a.dataset.price) - parseInt(b.dataset.price);
+                } else if (filter === 'rating') {
+                    return parseInt(b.dataset.rating) - parseInt(a.dataset.rating); // highest first
+                }
+                return 0;
+            });
+
+            // Re-append in sorted order
+            cards.forEach(card => container.appendChild(card));
+        }
+    </script>
 </body>
 </html>
