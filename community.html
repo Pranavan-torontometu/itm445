@@ -27,7 +27,13 @@
     <div>
         <h2>Firefly Burger</h2>
         <p>🔥 Most loved burger this week</p>
-        <p class="stars">★★★★★</p>
+        <div class="stars">
+    <img src="itm445Star.png" class="star">
+    <img src="itm445Star.png" class="star">
+    <img src="itm445Star.png" class="star">
+    <img src="itm445Star.png" class="star">
+    <img src="itm445Star.png" class="star">
+</div>
     </div>
 </div>
 
@@ -49,14 +55,26 @@
 
     <div class="review-card">
         <div class="review-header">@BurgerFan21</div>
-        <div class="stars">★★★★★</div>
+       <div class="stars">
+    <img src="itm445Star.png" class="star">
+    <img src="itm445Star.png" class="star">
+    <img src="itm445Star.png" class="star">
+    <img src="itm445Star.png" class="star">
+    <img src="itm445Star.png" class="star">
+</div>
         <p>Firefly Burger has amazing service and super juicy burgers.</p>
         <button class="like-btn" onclick="like(this)">👍 Like (0)</button>
     </div>
 
     <div class="review-card">
         <div class="review-header">@FoodieMike</div>
-        <div class="stars">★★★★☆</div>
+       <div class="stars">
+    <img src="itm445Star.png" class="star">
+    <img src="itm445Star.png" class="star">
+    <img src="itm445Star.png" class="star">
+    <img src="itm445Star.png" class="star">
+    <img src="itm445Star.png" class="star">
+</div>
         <p>Five Guys is simple but always hits.</p>
         <button class="like-btn" onclick="like(this)">👍 Like (0)</button>
     </div>
@@ -89,7 +107,13 @@ function addReview() {
 
     newReview.innerHTML = `
         <div class="review-header">@${user}</div>
-        <div class="stars">★★★★★</div>
+        <div class="stars">
+    <img src="itm445Star.png" class="star">
+    <img src="itm445Star.png" class="star">
+    <img src="itm445Star.png" class="star">
+    <img src="itm445Star.png" class="star">
+    <img src="itm445Star.png" class="star">
+</div>
         <p>${text}</p>
         <button class="like-btn" onclick="like(this)">👍 Like (0)</button>
     `;
