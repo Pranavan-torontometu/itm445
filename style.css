@@ -303,3 +303,12 @@ body {
     height: 20px;
     margin-right: 2px;
 }
+.star-input {
+    width: 25px;
+    cursor: pointer;
+    transition: transform 0.2s;
+}
+
+.star-input:hover {
+    transform: scale(1.2);
+}
