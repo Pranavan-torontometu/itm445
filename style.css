@@ -251,3 +251,33 @@ body {
     border: none;
     cursor: pointer;
 }
+
+/* NAV HOVER EFFECT */
+
+.navlinks a {
+    transition: 0.3s;
+    padding: 5px 10px;
+    border-radius: 5px;
+}
+
+.navlinks a:hover {
+    background: white;
+    color: #e63946;
+}
+
+/* BUTTON HOVER ANIMATION */
+
+.main-button, .search-button {
+    transition: 0.3s;
+}
+
+.main-button:hover, .search-button:hover {
+    transform: translateY(-2px);
+}
+
+/* CARD HOVER GLOW */
+
+.card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+}
