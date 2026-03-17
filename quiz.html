@@ -1,31 +1,66 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html>
 <head>
     <title>Burger Quiz</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="itm445.css">
 </head>
 
 <body>
 
-    <div class="navbar">
-        <h2>Fast Food Burger Locator</h2>
-        <div class="navlinks">
-            <a href="index.html">Home</a>
-            <a href="results.html">Find Restaurants</a>
-            <a href="build.html">Build Your Meal</a>
-            <a href="quiz.html">Quiz</a>
-            <a href="community.html">Community</a>
-        </div>
+<div class="navbar">
+    <h2>Fast Food Burger Locator</h2>
+    <div class="navlinks">
+        <a href="index.html">Home</a>
+        <a href="results.html">Find Restaurants</a>
+        <a href="build.html">Build Your Meal</a>
+        <a href="quiz.html">Quiz</a>
+        <a href="community.html">Community</a>
     </div>
+</div>
 
-    <div class="center">
-        <h2>Burger Personality Quiz</h2>
+<div class="center">
 
-        <p>Do you prefer spicy or mild?</p>
-        <p>Classic or adventurous?</p>
+    <h2>Burger Personality Quiz</h2>
 
-        <h3>Your Result: Classic Cheeseburger 🍔</h3>
-    </div>
+    <p>1. What do you prefer?</p>
+    <button onclick="answer('spicy')">Spicy 🔥</button>
+    <button onclick="answer('classic')">Classic 🍔</button>
+
+    <p>2. Pick a vibe:</p>
+    <button onclick="answer('fancy')">Fancy ✨</button>
+    <button onclick="answer('simple')">Simple 👍</button>
+
+    <h3 id="result"></h3>
+
+</div>
+
+<script>
+let score = {
+    spicy: 0,
+    classic: 0,
+    fancy: 0,
+    simple: 0
+};
+
+function answer(type) {
+    score[type]++;
+    showResult();
+}
+
+function showResult() {
+    let result = document.getElementById("result");
+
+    if (score.spicy >= 2) {
+        result.innerText = "🔥 You are a Spicy Burger!";
+    } else if (score.fancy >= 2) {
+        result.innerText = "✨ You are a Gourmet Burger!";
+    } else if (score.simple >= 2) {
+        result.innerText = "👍 You are a Simple Classic Burger!";
+    } else if (score.classic >= 2) {
+        result.innerText = "🍔 You are a Classic Cheeseburger!";
+    }
+}
+</script>
 
 </body>
 </html>
