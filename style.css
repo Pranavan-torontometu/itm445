@@ -118,11 +118,6 @@ body {
     border-radius: 8px;
     transition: transform 0.2s ease;
     /* Fix stretched stars in popular restaurant cards */
-.star {
-    width: 20px;   /* desired width */
-    height: auto;  /* maintain original aspect ratio */
-    margin-right: 2px;
-}
 }
 
 .card:hover {
@@ -323,5 +318,11 @@ body {
 .featured .star {
     width: 20px;   /* desired width */
     height: auto;  /* keep original aspect ratio */
+    margin-right: 2px;
+}
+/* Fix stretched stars in popular restaurant cards */
+.card .star {
+    width: 20px;   /* desired width */
+    height: auto;  /* maintain original aspect ratio */
     margin-right: 2px;
 }
