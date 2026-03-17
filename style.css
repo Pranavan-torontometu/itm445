@@ -221,6 +221,22 @@ body {
     color: #555;
 }
 
+.card-meta {
+    display: flex;
+    gap: 8px;
+    margin-top: 4px;
+    font-size: 13px;
+}
+
+.price-tag {
+    color: #e63946;
+    font-weight: bold;
+}
+
+.distance-tag {
+    color: #555;
+}
+
 /* Stars inside result cards */
 .result-card .stars {
     display: flex;
