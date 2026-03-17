@@ -326,3 +326,11 @@ body {
     height: auto;  /* maintain original aspect ratio */
     margin-right: 2px;
 }
+.result-card .stars {
+    margin: 5px 0;
+}
+
+.result-card .star {
+    width: 16px;
+    height: auto;
+}
