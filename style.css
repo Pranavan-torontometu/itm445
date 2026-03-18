@@ -4,7 +4,7 @@ body {
     background: #f5f5f5;
 }
 
-/* NAVBAR */
+
 
 .navbar {
     background: #e63946;
@@ -26,7 +26,7 @@ body {
     text-decoration: underline;
 }
 
-/* HERO */
+
 
 .hero {
     display: flex;
@@ -50,7 +50,7 @@ body {
     border-radius: 10px;
 }
 
-/* BUTTON */
+
 
 .main-button {
     display: inline-block;
@@ -66,7 +66,7 @@ body {
     background: #c92f3a;
 }
 
-/* SEARCH BAR */
+
 
 .search-bar {
     display: flex;
@@ -95,14 +95,14 @@ body {
     background: #c92f3a;
 }
 
-/* SECTION TITLE */
+
 
 .section-title {
     margin-left: 20px;
     margin-top: 30px;
 }
 
-/* CARDS */
+
 
 .restaurants {
     display: flex;
@@ -180,7 +180,7 @@ body {
     box-shadow: 0 0 0 2px rgba(255,255,255,0.6);
 }
 
-/* Result cards */
+
 .result-card {
     background: white;
     color: black;
@@ -201,7 +201,7 @@ body {
     flex-shrink: 0;
 }
 
-/* Text/stars column */
+
 .result-info {
     flex: 1;
     min-width: 0;
@@ -237,7 +237,7 @@ body {
     color: #555;
 }
 
-/* Stars inside result cards */
+
 .result-card .stars {
     display: flex;
     align-items: center;
@@ -260,13 +260,13 @@ body {
     height: 100%;
 }
 
-/* SIMPLE CENTER CONTENT (for quiz/build pages) */
+
 
 .center {
     padding: 40px;
 }
 
-/* COMMUNITY PAGE UPGRADE */
+
 
 .featured {
     margin: 20px;
@@ -316,7 +316,7 @@ body {
     background: #c92f3a;
 }
 
-/* ADD REVIEW BOX */
+
 
 .review-form {
     margin: 20px;
@@ -342,7 +342,7 @@ body {
     cursor: pointer;
 }
 
-/* NAV HOVER EFFECT */
+
 
 .navlinks a {
     transition: 0.3s;
@@ -355,7 +355,7 @@ body {
     color: #e63946;
 }
 
-/* BUTTON HOVER ANIMATION */
+
 
 .main-button, .search-button {
     transition: 0.3s;
@@ -365,14 +365,14 @@ body {
     transform: translateY(-2px);
 }
 
-/* CARD HOVER GLOW */
+
 
 .card:hover {
     transform: scale(1.05);
     box-shadow: 0 5px 15px rgba(0,0,0,0.3);
 }
 
-/* FADE IN ANIMATION */
+
 
 .fade-in {
     animation: fadeIn 1s ease-in;
@@ -405,14 +405,14 @@ body {
     transform: scale(1.2);
 }
 
-/* Fix stretched stars in featured top pick section */
+
 .featured .star {
     width: 20px;
     height: auto;
     margin-right: 2px;
 }
 
-/* Fix stretched stars in popular restaurant cards */
+
 .card .star {
     width: 20px;
     height: auto;
