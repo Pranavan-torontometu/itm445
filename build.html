@@ -1,72 +1,543 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Fast Food Burger Locator</title>
+    <title>Build Your Meal</title>
     <link rel="stylesheet" href="style.css">
+    <style>
+        .builder-container {
+            display: flex;
+            gap: 40px;
+            padding: 30px;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        /* LEFT — ingredient selectors */
+        .builder-options {
+            background: white;
+            border-radius: 12px;
+            padding: 30px;
+            width: 380px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+
+        .builder-options h3 {
+            margin: 0 0 20px 0;
+            font-size: 22px;
+            color: #2f2f2f;
+            border-bottom: 3px solid #e63946;
+            padding-bottom: 10px;
+        }
+
+        .ingredient-group {
+            margin-bottom: 22px;
+        }
+
+        .ingredient-group label {
+            display: block;
+            font-weight: bold;
+            font-size: 14px;
+            color: #555;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 8px;
+        }
+
+        .ingredient-options {
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap;
+        }
+
+        .ingredient-btn {
+            padding: 8px 16px;
+            border: 2px solid #ddd;
+            background: white;
+            border-radius: 20px;
+            cursor: pointer;
+            font-size: 14px;
+            transition: all 0.2s;
+            color: #333;
+        }
+
+        .ingredient-btn:hover {
+            border-color: #e63946;
+            color: #e63946;
+        }
+
+        .ingredient-btn.selected {
+            background: #e63946;
+            border-color: #e63946;
+            color: white;
+            font-weight: bold;
+        }
+
+        .build-btn {
+            width: 100%;
+            padding: 14px;
+            background: #e63946;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            margin-top: 10px;
+            transition: all 0.3s;
+        }
+
+        .build-btn:hover {
+            background: #c92f3a;
+            transform: translateY(-2px);
+        }
+
+        .build-btn:disabled {
+            background: #ccc;
+            cursor: not-allowed;
+            transform: none;
+        }
+
+        /* RIGHT — burger preview */
+        .builder-preview {
+            background: white;
+            border-radius: 12px;
+            padding: 30px;
+            width: 340px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .builder-preview h3 {
+            margin: 0 0 20px 0;
+            font-size: 22px;
+            color: #2f2f2f;
+            border-bottom: 3px solid #e63946;
+            padding-bottom: 10px;
+            width: 100%;
+            text-align: center;
+        }
+
+        /* CSS Burger Stack */
+        .burger-stack {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 3px;
+            min-height: 200px;
+            justify-content: flex-end;
+            margin-bottom: 20px;
+            width: 100%;
+        }
+
+        .layer {
+            border-radius: 6px;
+            transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+            opacity: 0;
+            transform: translateY(-20px);
+            display: none;
+        }
+
+        .layer.visible {
+            opacity: 1;
+            transform: translateY(0);
+            display: block;
+        }
+
+        /* Bun top */
+        .layer-bun-top {
+            width: 160px;
+            height: 50px;
+            border-radius: 80px 80px 10px 10px;
+        }
+        .bun-white-top { background: radial-gradient(ellipse at 40% 30%, #f5d78e, #d4a843); }
+        .bun-wheat-top { background: radial-gradient(ellipse at 40% 30%, #c8a96e, #8b6914); }
+        .bun-brioche-top { background: radial-gradient(ellipse at 40% 30%, #f0c060, #c07820); }
+
+        /* Toppings */
+        .layer-lettuce {
+            width: 170px;
+            height: 14px;
+            background: linear-gradient(90deg, #4caf50, #66bb6a, #388e3c, #4caf50);
+            border-radius: 4px;
+        }
+
+        .layer-tomato {
+            width: 155px;
+            height: 12px;
+            background: linear-gradient(90deg, #e53935, #ef5350, #c62828);
+            border-radius: 3px;
+        }
+
+        .layer-cheese {
+            width: 165px;
+            height: 10px;
+            background: linear-gradient(90deg, #ffb300, #ffc107, #ffa000);
+            border-radius: 2px;
+        }
+
+        .layer-bacon {
+            width: 158px;
+            height: 10px;
+            background: linear-gradient(90deg, #8d3200, #bf360c, #7b1f00, #bf360c);
+            border-radius: 3px;
+        }
+
+        /* Sauces */
+        .layer-ketchup {
+            width: 140px;
+            height: 8px;
+            background: #c62828;
+            border-radius: 4px;
+            opacity: 0.85;
+        }
+        .layer-mayo {
+            width: 140px;
+            height: 8px;
+            background: #fff8dc;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+        .layer-bbq {
+            width: 140px;
+            height: 8px;
+            background: #4e1c00;
+            border-radius: 4px;
+            opacity: 0.85;
+        }
+
+        /* Patty */
+        .layer-patty {
+            width: 160px;
+            height: 22px;
+            border-radius: 6px;
+        }
+        .patty-beef { background: radial-gradient(ellipse, #6d3b1f, #3e1a08); }
+        .patty-chicken { background: radial-gradient(ellipse, #d4a843, #a0722a); }
+        .patty-veggie { background: radial-gradient(ellipse, #558b2f, #2e5f14); }
+
+        /* Bun bottom */
+        .layer-bun-bottom {
+            width: 170px;
+            height: 25px;
+            border-radius: 4px 4px 10px 10px;
+        }
+        .bun-white-bottom { background: linear-gradient(180deg, #f5d78e, #d4a843); }
+        .bun-wheat-bottom { background: linear-gradient(180deg, #c8a96e, #8b6914); }
+        .bun-brioche-bottom { background: linear-gradient(180deg, #f0c060, #c07820); }
+
+        /* Estimator */
+        .estimator {
+            width: 100%;
+            background: #f5f5f5;
+            border-radius: 8px;
+            padding: 15px;
+            margin-top: 10px;
+        }
+
+        .estimator-row {
+            display: flex;
+            justify-content: space-between;
+            font-size: 14px;
+            margin-bottom: 6px;
+            color: #555;
+        }
+
+        .estimator-row.total {
+            font-weight: bold;
+            font-size: 16px;
+            color: #2f2f2f;
+            border-top: 1px solid #ddd;
+            padding-top: 8px;
+            margin-top: 4px;
+        }
+
+        .estimator-row span:last-child {
+            color: #e63946;
+            font-weight: bold;
+        }
+
+        /* Final result photo */
+        .result-reveal {
+            display: none;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            animation: popIn 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+        }
+
+        .result-reveal.show {
+            display: flex;
+        }
+
+        .result-reveal img {
+            width: 100%;
+            max-width: 280px;
+            border-radius: 12px;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.2);
+            margin-bottom: 12px;
+        }
+
+        .result-reveal h4 {
+            color: #e63946;
+            font-size: 18px;
+            margin: 0 0 6px 0;
+        }
+
+        .result-reveal p {
+            color: #555;
+            font-size: 14px;
+            margin: 0;
+        }
+
+        .reset-btn {
+            margin-top: 15px;
+            padding: 10px 24px;
+            background: white;
+            border: 2px solid #e63946;
+            color: #e63946;
+            border-radius: 8px;
+            font-size: 14px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .reset-btn:hover {
+            background: #e63946;
+            color: white;
+        }
+
+        @keyframes popIn {
+            from { opacity: 0; transform: scale(0.8); }
+            to { opacity: 1; transform: scale(1); }
+        }
+
+        .builder-title {
+            text-align: center;
+            margin: 30px 0 0 0;
+            font-size: 28px;
+            color: #2f2f2f;
+        }
+
+        .builder-subtitle {
+            text-align: center;
+            color: #777;
+            margin: 8px 0 0 0;
+        }
+    </style>
 </head>
 <body>
-<div class="navbar">
-    <h2>Fast Food Burger Locator</h2>
-    <div class="navlinks">
-        <a href="index.html">Home</a>
-        <a href="results.html">Find Restaurants</a>
-        <a href="build.html">Build Your Meal</a>
-        <a href="quiz.html">Quiz</a>
-        <a href="community.html">Community</a>
-    </div>
-</div>
-<div class="hero fade-in">
-    <div class="hero-text">
-        <h1>Discover the Best Burger Near You</h1>
-        <p>Find top rated burgers near you</p>
-        <a href="results.html" class="main-button">Find Restaurants Near Me</a>
-    </div>
-    <div class="hero-image">
-        <img src="burger_reveal.jpg">
-    </div>
-</div>
-<div class="search-bar">
-    <input type="text" placeholder="Enter Location">
-    <input type="text" placeholder="Search Restaurant">
-    <input type="text" placeholder="Distance Filter">
-    <a href="results.html" class="search-button">Search</a>
-</div>
-<h2 class="section-title">Popular Restaurants Near You</h2>
-<div class="restaurants fade-in">
-    <div class="card">
-        <h3>Firefly Burger</h3>
-        <p>Rating:</p>
-        <div class="stars">
-            <img src="itm445Star.png" class="star">
-            <img src="itm445Star.png" class="star">
-            <img src="itm445Star.png" class="star">
+    <div class="navbar">
+        <h2>Fast Food Burger Locator</h2>
+        <div class="navlinks">
+            <a href="index.html">Home</a>
+            <a href="results.html">Find Restaurants</a>
+            <a href="build.html">Build Your Meal</a>
+            <a href="quiz.html">Quiz</a>
+            <a href="community.html">Community</a>
         </div>
-        <p>Distance: 0.6km Away</p>
-        <img src="burger.jpg">
     </div>
-    <div class="card">
-        <h3>Bodega Burgers</h3>
-        <p>Rating:</p>
-        <div class="stars">
-            <img src="itm445Star.png" class="star">
-            <img src="itm445Star.png" class="star">
-            <img src="itm445Star.png" class="star">
+
+    <h2 class="builder-title">🍔 Build Your Burger</h2>
+    <p class="builder-subtitle">Pick your ingredients and see your creation come to life</p>
+
+    <div class="builder-container">
+        <!-- LEFT: Options -->
+        <div class="builder-options">
+            <h3>Choose Your Ingredients</h3>
+
+            <div class="ingredient-group">
+                <label>🍞 Bun</label>
+                <div class="ingredient-options">
+                    <button class="ingredient-btn" onclick="select(this, 'bun', 'White', 1.00, 120)">White</button>
+                    <button class="ingredient-btn" onclick="select(this, 'bun', 'Wheat', 1.00, 110)">Wheat</button>
+                    <button class="ingredient-btn" onclick="select(this, 'bun', 'Brioche', 1.50, 150)">Brioche</button>
+                </div>
+            </div>
+
+            <div class="ingredient-group">
+                <label>🥩 Protein</label>
+                <div class="ingredient-options">
+                    <button class="ingredient-btn" onclick="select(this, 'patty', 'Beef', 3.00, 280)">Beef</button>
+                    <button class="ingredient-btn" onclick="select(this, 'patty', 'Chicken', 2.50, 220)">Chicken</button>
+                    <button class="ingredient-btn" onclick="select(this, 'patty', 'Veggie', 2.00, 180)">Veggie</button>
+                </div>
+            </div>
+
+            <div class="ingredient-group">
+                <label>🧃 Sauce</label>
+                <div class="ingredient-options">
+                    <button class="ingredient-btn" onclick="select(this, 'sauce', 'Ketchup', 0, 20)">Ketchup</button>
+                    <button class="ingredient-btn" onclick="select(this, 'sauce', 'Mayo', 0, 45)">Mayo</button>
+                    <button class="ingredient-btn" onclick="select(this, 'sauce', 'BBQ', 0, 30)">BBQ</button>
+                </div>
+            </div>
+
+            <div class="ingredient-group">
+                <label>🥗 Toppings <span style="font-weight:normal;color:#aaa;font-size:12px;">(pick any)</span></label>
+                <div class="ingredient-options">
+                    <button class="ingredient-btn topping-btn" onclick="toggleTopping(this, 'Lettuce', 0, 5)">Lettuce</button>
+                    <button class="ingredient-btn topping-btn" onclick="toggleTopping(this, 'Tomato', 0, 10)">Tomato</button>
+                    <button class="ingredient-btn topping-btn" onclick="toggleTopping(this, 'Cheese', 0.50, 60)">Cheese +$0.50</button>
+                    <button class="ingredient-btn topping-btn" onclick="toggleTopping(this, 'Bacon', 1.00, 80)">Bacon +$1.00</button>
+                </div>
+            </div>
+
+            <button class="build-btn" id="build-btn" onclick="buildBurger()" disabled>Build My Burger 🍔</button>
         </div>
-        <p>Distance: 0.4km Away</p>
-        <img src="burger.jpg">
-    </div>
-    <div class="card">
-        <h3>Five Guys</h3>
-        <p>Rating:</p>
-        <div class="stars">
-            <img src="itm445Star.png" class="star">
-            <img src="itm445Star.png" class="star">
-            <img src="itm445Star.png" class="star">
-            <img src="itm445Star.png" class="star">
+
+        <!-- RIGHT: Preview -->
+        <div class="builder-preview">
+            <h3>Your Burger</h3>
+
+            <!-- CSS Stack -->
+            <div class="burger-stack" id="burger-stack">
+                <div class="layer layer-bun-top" id="layer-bun-top"></div>
+                <div class="layer layer-lettuce" id="layer-lettuce"></div>
+                <div class="layer layer-tomato" id="layer-tomato"></div>
+                <div class="layer layer-cheese" id="layer-cheese"></div>
+                <div class="layer layer-bacon" id="layer-bacon"></div>
+                <div class="layer layer-ketchup" id="layer-ketchup"></div>
+                <div class="layer layer-mayo" id="layer-mayo"></div>
+                <div class="layer layer-bbq" id="layer-bbq"></div>
+                <div class="layer layer-patty" id="layer-patty"></div>
+                <div class="layer layer-bun-bottom" id="layer-bun-bottom"></div>
+            </div>
+
+            <!-- Estimator -->
+            <div class="estimator">
+                <div class="estimator-row">
+                    <span>Estimated Price</span>
+                    <span id="price-display">$0.00</span>
+                </div>
+                <div class="estimator-row">
+                    <span>Estimated Calories</span>
+                    <span id="cal-display">0 kcal</span>
+                </div>
+            </div>
+
+            <!-- Final reveal (shown after Build is clicked) -->
+            <div class="result-reveal" id="result-reveal">
+                <img src="burger.jpg" alt="Your finished burger">
+                <h4>Your Burger is Ready! 🎉</h4>
+                <p id="result-summary"></p>
+                <button class="reset-btn" onclick="resetBuilder()">Start Over</button>
+            </div>
         </div>
-        <p>Distance: 0.5km Away</p>
-        <img src="burger.jpg">
     </div>
-</div>
+
+    <script>
+        const selections = { bun: null, patty: null, sauce: null };
+        const toppings = {};
+        let totalPrice = 0;
+        let totalCals = 0;
+
+        function updateEstimator() {
+            totalPrice = 0;
+            totalCals = 0;
+
+            if (selections.bun) { totalPrice += selections.bun.price; totalCals += selections.bun.cals; }
+            if (selections.patty) { totalPrice += selections.patty.price; totalCals += selections.patty.cals; }
+            if (selections.sauce) { totalPrice += selections.sauce.price; totalCals += selections.sauce.cals; }
+            Object.values(toppings).forEach(t => { totalPrice += t.price; totalCals += t.cals; });
+
+            document.getElementById('price-display').textContent = '$' + totalPrice.toFixed(2);
+            document.getElementById('cal-display').textContent = totalCals + ' kcal';
+
+            // Enable build button only if bun + patty + sauce selected
+            const ready = selections.bun && selections.patty && selections.sauce;
+            document.getElementById('build-btn').disabled = !ready;
+        }
+
+        function select(btn, type, name, price, cals) {
+            // Deselect others in same group
+            btn.closest('.ingredient-options').querySelectorAll('.ingredient-btn').forEach(b => b.classList.remove('selected'));
+            btn.classList.add('selected');
+
+            selections[type] = { name, price, cals };
+            updateStack();
+            updateEstimator();
+        }
+
+        function toggleTopping(btn, name, price, cals) {
+            if (toppings[name]) {
+                delete toppings[name];
+                btn.classList.remove('selected');
+            } else {
+                toppings[name] = { price, cals };
+                btn.classList.add('selected');
+            }
+            updateStack();
+            updateEstimator();
+        }
+
+        function updateStack() {
+            // Bun
+            const bunEl = document.getElementById('layer-bun-top');
+            const bunBotEl = document.getElementById('layer-bun-bottom');
+            if (selections.bun) {
+                const bunKey = selections.bun.name.toLowerCase();
+                bunEl.className = `layer layer-bun-top bun-${bunKey}-top visible`;
+                bunBotEl.className = `layer layer-bun-bottom bun-${bunKey}-bottom visible`;
+            } else {
+                bunEl.className = 'layer layer-bun-top';
+                bunBotEl.className = 'layer layer-bun-bottom';
+            }
+
+            // Patty
+            const pattyEl = document.getElementById('layer-patty');
+            if (selections.patty) {
+                pattyEl.className = `layer layer-patty patty-${selections.patty.name.toLowerCase()} visible`;
+            } else {
+                pattyEl.className = 'layer layer-patty';
+            }
+
+            // Sauce
+            ['ketchup','mayo','bbq'].forEach(s => {
+                const el = document.getElementById(`layer-${s}`);
+                el.className = `layer layer-${s}`;
+            });
+            if (selections.sauce) {
+                const sauceEl = document.getElementById(`layer-${selections.sauce.name.toLowerCase()}`);
+                if (sauceEl) sauceEl.classList.add('visible');
+            }
+
+            // Toppings
+            ['lettuce','tomato','cheese','bacon'].forEach(t => {
+                const el = document.getElementById(`layer-${t}`);
+                if (toppings[t.charAt(0).toUpperCase() + t.slice(1)]) {
+                    el.className = `layer layer-${t} visible`;
+                } else {
+                    el.className = `layer layer-${t}`;
+                }
+            });
+        }
+
+        function buildBurger() {
+            const toppingList = Object.keys(toppings);
+            const summary = `${selections.bun.name} bun · ${selections.patty.name} patty · ${selections.sauce.name}${toppingList.length ? ' · ' + toppingList.join(', ') : ''}`;
+            document.getElementById('result-summary').textContent = summary;
+
+            document.getElementById('burger-stack').style.display = 'none';
+            document.getElementById('result-reveal').classList.add('show');
+            document.getElementById('build-btn').style.display = 'none';
+        }
+
+        function resetBuilder() {
+            selections.bun = null; selections.patty = null; selections.sauce = null;
+            Object.keys(toppings).forEach(k => delete toppings[k]);
+
+            document.querySelectorAll('.ingredient-btn').forEach(b => b.classList.remove('selected'));
+            document.getElementById('burger-stack').style.display = 'flex';
+            document.getElementById('result-reveal').classList.remove('show');
+            document.getElementById('build-btn').style.display = 'block';
+            document.getElementById('build-btn').disabled = true;
+
+            updateStack();
+            updateEstimator();
+        }
+    </script>
 </body>
 </html>
