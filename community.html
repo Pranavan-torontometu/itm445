@@ -39,13 +39,13 @@
         </div>
     </div>
 
-    <!-- COMMUNITY REVIEWS -->
-    <div class="reviews-section fade-in">
-        <h2>💬 Community Reviews</h2>
-        <div class="reviews-grid" id="reviews-grid">
+    <!-- REVIEWS BY RESTAURANT -->
 
+    <!-- Jack's -->
+    <div class="restaurant-review-section fade-in">
+        <h3>🌟 Jack's Sankofa Square</h3>
+        <div class="reviews-row">
             <div class="review-card">
-                <p class="review-restaurant">Jack's Sankofa Square</p>
                 <p class="review-header">@BurgerFan21</p>
                 <div class="stars">
                     <img src="itm445Star.png" class="star">
@@ -57,9 +57,26 @@
                 <p class="review-text">Jack's is on another level. The smash burger was juicy, perfectly seasoned, and the brioche bun held up the whole way through. Best burger in the area, no contest.</p>
                 <button class="like-btn" onclick="like(this)">👍 Like (<span>0</span>)</button>
             </div>
-
             <div class="review-card">
-                <p class="review-restaurant">Five Guys</p>
+                <p class="review-header">@DowntownFoodie</p>
+                <div class="stars">
+                    <img src="itm445Star.png" class="star">
+                    <img src="itm445Star.png" class="star">
+                    <img src="itm445Star.png" class="star">
+                    <img src="itm445Star.png" class="star">
+                    <img src="itm445Star.png" class="star">
+                </div>
+                <p class="review-text">Worth every penny. The atmosphere is great and the burger was honestly one of the best I've had in Toronto. The melted cheese and BBQ sauce combo is incredible.</p>
+                <button class="like-btn" onclick="like(this)">👍 Like (<span>0</span>)</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Five Guys -->
+    <div class="restaurant-review-section fade-in">
+        <h3>🍟 Five Guys</h3>
+        <div class="reviews-row">
+            <div class="review-card">
                 <p class="review-header">@FoodieMike</p>
                 <div class="stars">
                     <img src="itm445Star.png" class="star">
@@ -70,9 +87,25 @@
                 <p class="review-text">Five Guys is reliable every single time. Fresh beef, free toppings, and you can really customize it however you want. The bacon cheeseburger is a must.</p>
                 <button class="like-btn" onclick="like(this)">👍 Like (<span>0</span>)</button>
             </div>
-
             <div class="review-card">
-                <p class="review-restaurant">Firefly Burger</p>
+                <p class="review-header">@LunchBreakTO</p>
+                <div class="stars">
+                    <img src="itm445Star.png" class="star">
+                    <img src="itm445Star.png" class="star">
+                    <img src="itm445Star.png" class="star">
+                    <img src="itm445Star.png" class="star">
+                </div>
+                <p class="review-text">Great for a quick lunch. The portions are generous and the fries are amazing. Service is always fast and the staff are friendly. Solid 4 stars consistently.</p>
+                <button class="like-btn" onclick="like(this)">👍 Like (<span>0</span>)</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Firefly -->
+    <div class="restaurant-review-section fade-in">
+        <h3>🔥 Firefly Burger</h3>
+        <div class="reviews-row">
+            <div class="review-card">
                 <p class="review-header">@TorontoEats</p>
                 <div class="stars">
                     <img src="itm445Star.png" class="star">
@@ -82,9 +115,24 @@
                 <p class="review-text">Firefly has a really unique menu compared to the big chains. The sauces are different and interesting. Service was quick too. Worth a visit if you want something a bit different.</p>
                 <button class="like-btn" onclick="like(this)">👍 Like (<span>0</span>)</button>
             </div>
-
             <div class="review-card">
-                <p class="review-restaurant">Bodega Burgers</p>
+                <p class="review-header">@SpicyBurgerGuy</p>
+                <div class="stars">
+                    <img src="itm445Star.png" class="star">
+                    <img src="itm445Star.png" class="star">
+                    <img src="itm445Star.png" class="star">
+                </div>
+                <p class="review-text">Cool spot, different vibe from the usual chains. The spicy sauce was actually spicy which I appreciated. Prices are reasonable. Would come back to try more items on the menu.</p>
+                <button class="like-btn" onclick="like(this)">👍 Like (<span>0</span>)</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bodega -->
+    <div class="restaurant-review-section fade-in">
+        <h3>💸 Bodega Burgers</h3>
+        <div class="reviews-row">
+            <div class="review-card">
                 <p class="review-header">@QuickLunchTO</p>
                 <div class="stars">
                     <img src="itm445Star.png" class="star">
@@ -94,7 +142,16 @@
                 <p class="review-text">Bodega is perfect for a quick lunch break. It's the closest spot and the price is really fair. Nothing fancy but it does the job well. Good value for money.</p>
                 <button class="like-btn" onclick="like(this)">👍 Like (<span>0</span>)</button>
             </div>
-
+            <div class="review-card">
+                <p class="review-header">@BudgetBites</p>
+                <div class="stars">
+                    <img src="itm445Star.png" class="star">
+                    <img src="itm445Star.png" class="star">
+                    <img src="itm445Star.png" class="star">
+                </div>
+                <p class="review-text">Best bang for your buck near campus. The classic burger is simple but tasty and you can eat for under $10. Staff are friendly and it never takes too long.</p>
+                <button class="like-btn" onclick="like(this)">👍 Like (<span>0</span>)</button>
+            </div>
         </div>
     </div>
 
@@ -123,17 +180,23 @@
 
     <footer class="footer">
         <div class="footer-inner">
-            <div class="footer-brand">
-                <h3>Fast Food Burger Locator</h3>
+            <div class="footer-col">
+                <p class="footer-brand-name">Fast Food Burger Locator</p>
                 <p>Find the best burgers near you in Toronto.</p>
             </div>
-            <div class="footer-links">
+            <div class="footer-col">
                 <h4>Quick Links</h4>
                 <a href="index.html">Home</a>
                 <a href="results.html">Find Restaurants</a>
                 <a href="build.html">Build Your Meal</a>
                 <a href="quiz.html">Quiz</a>
                 <a href="community.html">Community</a>
+            </div>
+            <div class="footer-col">
+                <h4>Contact Us</h4>
+                <p>📧 info@fastfoodburgerlocator.ca</p>
+                <p style="margin-top:8px;">📞 (416) 555-0192</p>
+                <p style="margin-top:8px;">📍 Toronto, Ontario</p>
             </div>
         </div>
         <div class="footer-bottom">
@@ -168,26 +231,37 @@
                 return;
             }
 
-            const grid = document.getElementById('reviews-grid');
-            const card = document.createElement('div');
-            card.className = 'review-card fade-in';
+            // Find the matching restaurant section and add review there
+            const sections = document.querySelectorAll('.restaurant-review-section');
+            let targetRow = null;
+
+            sections.forEach(section => {
+                if (section.querySelector('h3').textContent.includes(restaurant.split(' ')[0]) ||
+                    section.querySelector('h3').textContent.includes(restaurant)) {
+                    targetRow = section.querySelector('.reviews-row');
+                }
+            });
 
             let starsHTML = '';
             for (let i = 0; i < currentRating; i++) {
                 starsHTML += `<img src="itm445Star.png" class="star">`;
             }
 
+            const card = document.createElement('div');
+            card.className = 'review-card fade-in';
             card.innerHTML = `
-                <p class="review-restaurant">${restaurant}</p>
                 <p class="review-header">${username}</p>
                 <div class="stars">${starsHTML}</div>
                 <p class="review-text">${text}</p>
                 <button class="like-btn" onclick="like(this)">👍 Like (<span>0</span>)</button>
             `;
 
-            grid.prepend(card);
+            if (targetRow) {
+                targetRow.appendChild(card);
+                targetRow.closest('.restaurant-review-section').scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+            }
 
-            // Reset form
+            // Reset
             document.getElementById('review-restaurant').value = '';
             document.getElementById('review-username').value = '';
             document.getElementById('review-text').value = '';
