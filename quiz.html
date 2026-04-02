@@ -24,9 +24,9 @@
             <div class="quiz-question">
                 <h3>1. What kind of flavour are you craving?</h3>
                 <div class="quiz-options">
-                    <button class="quiz-btn" onclick="answer(this, 0, 'classic')">🍔 Classic & Simple</button>
-                    <button class="quiz-btn" onclick="answer(this, 0, 'bold')">🔥 Bold & Flavourful</button>
-                    <button class="quiz-btn" onclick="answer(this, 0, 'spicy')">🌶️ Spicy & Adventurous</button>
+                    <button class="quiz-btn" onclick="answer(this, 0, 'classic')">🍔 Classic &amp; Simple</button>
+                    <button class="quiz-btn" onclick="answer(this, 0, 'bold')">🔥 Bold &amp; Flavourful</button>
+                    <button class="quiz-btn" onclick="answer(this, 0, 'spicy')">🌶️ Spicy &amp; Adventurous</button>
                 </div>
             </div>
 
@@ -51,7 +51,7 @@
             <div class="quiz-question">
                 <h3>4. What matters most to you?</h3>
                 <div class="quiz-options">
-                    <button class="quiz-btn" onclick="answer(this, 3, 'value')">⚡ Fast & good value</button>
+                    <button class="quiz-btn" onclick="answer(this, 3, 'value')">⚡ Fast &amp; good value</button>
                     <button class="quiz-btn" onclick="answer(this, 3, 'quality')">⭐ Top quality ingredients</button>
                     <button class="quiz-btn" onclick="answer(this, 3, 'unique')">🌟 Something unique</button>
                 </div>
@@ -74,17 +74,23 @@
 
     <footer class="footer">
         <div class="footer-inner">
-            <div class="footer-brand">
-                <h3>Fast Food Burger Locator</h3>
+            <div class="footer-col">
+                <p class="footer-brand-name">Fast Food Burger Locator</p>
                 <p>Find the best burgers near you in Toronto.</p>
             </div>
-            <div class="footer-links">
+            <div class="footer-col">
                 <h4>Quick Links</h4>
                 <a href="index.html">Home</a>
                 <a href="results.html">Find Restaurants</a>
                 <a href="build.html">Build Your Meal</a>
                 <a href="quiz.html">Quiz</a>
                 <a href="community.html">Community</a>
+            </div>
+            <div class="footer-col">
+                <h4>Contact Us</h4>
+                <p>📧 info@fastfoodburgerlocator.ca</p>
+                <p style="margin-top:8px;">📞 (416) 555-0192</p>
+                <p style="margin-top:8px;">📍 Toronto, Ontario</p>
             </div>
         </div>
         <div class="footer-bottom">
@@ -96,60 +102,53 @@
         const answers = [null, null, null, null];
 
         const results = {
-            // Jack's — bold, splurge, quality, unique
             jacks: {
                 name: "Jack's Sankofa Square",
                 emoji: "🌟",
                 desc: "You have great taste and you're not afraid to go the extra mile for it. Jack's Sankofa Square is the top-rated spot in the area — rich flavours, high quality ingredients, and a burger experience that's truly worth it. Rated 5 stars for a reason.",
                 triggers: ['bold', 'splurge', 'quality', 'unique', 'far']
             },
-            // Five Guys — classic, mid, value
             fiveguys: {
                 name: "Five Guys",
                 emoji: "🍟",
-                desc: "You're a no-nonsense burger person. You want it done right, done fresh, and done your way. Five Guys delivers every time — classic beef patties, fresh toppings, and consistent quality at a fair price. A crowd favourite for a reason.",
+                desc: "You're a no-nonsense burger person. You want it done right, done fresh, and done your way. Five Guys delivers every time — classic beef patties, fresh toppings, and consistent quality at a fair price.",
                 triggers: ['classic', 'mid', 'value', 'medium']
             },
-            // Bodega — cheap, close, fast
             bodega: {
                 name: "Bodega Burgers",
                 emoji: "💸",
                 desc: "Smart, fast, and close by — Bodega Burgers is your kind of spot. The closest restaurant in the area with great value for money. Perfect when you need a solid burger without the wait or the price tag.",
                 triggers: ['cheap', 'close', 'value']
             },
-            // Firefly — bold, mid, unique
             firefly: {
                 name: "Firefly Burger",
                 emoji: "🔥",
-                desc: "You like things with a bit of character. Firefly Burger brings bold flavours and a unique take on the classic burger that stands out from the chain restaurants. If you're looking for something that actually excites your taste buds, this is your spot.",
+                desc: "You like things with a bit of character. Firefly Burger brings bold flavours and a unique take on the classic burger. If you're looking for something that actually excites your taste buds, this is your spot.",
                 triggers: ['bold', 'spicy', 'unique', 'mid']
             }
         };
 
         function answer(btn, qIndex, value) {
+            // Remove selected from siblings
             btn.closest('.quiz-options').querySelectorAll('.quiz-btn').forEach(b => b.classList.remove('selected'));
             btn.classList.add('selected');
             answers[qIndex] = value;
+            // Enable submit only when all answered
             document.getElementById('quiz-submit').disabled = answers.some(a => a === null);
         }
 
         function showResult() {
-            // Score each restaurant
             const scores = { jacks: 0, fiveguys: 0, bodega: 0, firefly: 0 };
             answers.forEach(a => {
                 Object.keys(results).forEach(key => {
                     if (results[key].triggers.includes(a)) scores[key]++;
                 });
             });
-
-            // Pick highest score
             const winner = Object.keys(scores).reduce((a, b) => scores[a] >= scores[b] ? a : b);
             const r = results[winner];
-
             document.getElementById('result-emoji').textContent = r.emoji;
             document.getElementById('result-restaurant').textContent = r.name;
             document.getElementById('result-desc').textContent = r.desc;
-
             document.getElementById('quiz-questions').style.display = 'none';
             document.getElementById('quiz-result').classList.add('show');
         }
