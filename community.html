@@ -1,175 +1,201 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>Community</title>
+    <title>Community - Fast Food Burger Locator</title>
     <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
-
-<div class="navbar">
-    <h2>Fast Food Burger Locator</h2>
-    <div class="navlinks">
-        <a href="index.html">Home</a>
-        <a href="results.html">Find Restaurants</a>
-        <a href="build.html">Build Your Meal</a>
-        <a href="quiz.html">Quiz</a>
-        <a href="community.html">Community</a>
-    </div>
-</div>
-
-<!-- FEATURED -->
-
-<h2 class="section-title">
-    <img src="itm445Star.png" class="star"> Top Community Pick
-</h2>
-
-<div class="featured fade-in">
-    <img src="burger.jpg">
-    <div>
-        <h2>Firefly Burger</h2>
-        <p>🔥 Most loved burger this week</p>
-        <div class="stars">
-            <img src="itm445Star.png" class="star">
-            <img src="itm445Star.png" class="star">
-            <img src="itm445Star.png" class="star">
-            <img src="itm445Star.png" class="star">
-            <img src="itm445Star.png" class="star">
+    <div class="navbar">
+        <h2>Fast Food Burger Locator</h2>
+        <div class="navlinks">
+            <a href="index.html">Home</a>
+            <a href="results.html">Find Restaurants</a>
+            <a href="build.html">Build Your Meal</a>
+            <a href="quiz.html">Quiz</a>
+            <a href="community.html" class="active">Community</a>
         </div>
     </div>
-</div>
 
-<!-- ADD REVIEW -->
-
-<h2 class="section-title">📝 Add Your Review</h2>
-
-<div class="review-form">
-
-    <!-- STAR INPUT -->
-    <div id="starRating">
-        <img src="itm445StarEmpty.png" class="star-input" data-value="1">
-        <img src="itm445StarEmpty.png" class="star-input" data-value="2">
-        <img src="itm445StarEmpty.png" class="star-input" data-value="3">
-        <img src="itm445StarEmpty.png" class="star-input" data-value="4">
-        <img src="itm445StarEmpty.png" class="star-input" data-value="5">
+    <div class="page-header">
+        <h1>Community Reviews 🍔</h1>
+        <p>See what other burger lovers are saying about local spots</p>
     </div>
 
-    <input type="text" id="username" placeholder="Your name">
-    <textarea id="reviewText" placeholder="Write your review..."></textarea>
-    <button onclick="addReview()">Post Review</button>
-</div>
-
-<!-- REVIEWS -->
-
-<h2 class="section-title">💬 Community Reviews</h2>
-
-<div class="restaurants fade-in" id="reviews">
-
-    <div class="review-card">
-        <div class="review-header">@BurgerFan21</div>
-        <div class="stars">
-            <img src="itm445Star.png" class="star">
-            <img src="itm445Star.png" class="star">
-            <img src="itm445Star.png" class="star">
-            <img src="itm445Star.png" class="star">
-            <img src="itm445Star.png" class="star">
+    <!-- FEATURED TOP PICK -->
+    <div class="featured fade-in">
+        <img src="burger_reveal.jpg" alt="Jack's Sankofa Square">
+        <div>
+            <p style="font-size:12px;color:#e63946;font-weight:bold;text-transform:uppercase;letter-spacing:1px;">⭐ Top Community Pick This Week</p>
+            <h2>Jack's Sankofa Square</h2>
+            <div class="stars">
+                <img src="itm445Star.png" class="star">
+                <img src="itm445Star.png" class="star">
+                <img src="itm445Star.png" class="star">
+                <img src="itm445Star.png" class="star">
+                <img src="itm445Star.png" class="star">
+                <span class="rating-badge rating-5">5.0</span>
+            </div>
+            <p>The most loved burger spot in the area this week. Rich flavours, great service, and a burger that actually lives up to the hype.</p>
         </div>
-        <p>Firefly Burger has amazing service and super juicy burgers.</p>
-        <button class="like-btn" onclick="like(this)">👍 Like (0)</button>
     </div>
 
-    <div class="review-card">
-        <div class="review-header">@FoodieMike</div>
-        <div class="stars">
-            <img src="itm445Star.png" class="star">
-            <img src="itm445Star.png" class="star">
-            <img src="itm445Star.png" class="star">
-            <img src="itm445Star.png" class="star">
+    <!-- COMMUNITY REVIEWS -->
+    <div class="reviews-section fade-in">
+        <h2>💬 Community Reviews</h2>
+        <div class="reviews-grid" id="reviews-grid">
+
+            <div class="review-card">
+                <p class="review-restaurant">Jack's Sankofa Square</p>
+                <p class="review-header">@BurgerFan21</p>
+                <div class="stars">
+                    <img src="itm445Star.png" class="star">
+                    <img src="itm445Star.png" class="star">
+                    <img src="itm445Star.png" class="star">
+                    <img src="itm445Star.png" class="star">
+                    <img src="itm445Star.png" class="star">
+                </div>
+                <p class="review-text">Jack's is on another level. The smash burger was juicy, perfectly seasoned, and the brioche bun held up the whole way through. Best burger in the area, no contest.</p>
+                <button class="like-btn" onclick="like(this)">👍 Like (<span>0</span>)</button>
+            </div>
+
+            <div class="review-card">
+                <p class="review-restaurant">Five Guys</p>
+                <p class="review-header">@FoodieMike</p>
+                <div class="stars">
+                    <img src="itm445Star.png" class="star">
+                    <img src="itm445Star.png" class="star">
+                    <img src="itm445Star.png" class="star">
+                    <img src="itm445Star.png" class="star">
+                </div>
+                <p class="review-text">Five Guys is reliable every single time. Fresh beef, free toppings, and you can really customize it however you want. The bacon cheeseburger is a must.</p>
+                <button class="like-btn" onclick="like(this)">👍 Like (<span>0</span>)</button>
+            </div>
+
+            <div class="review-card">
+                <p class="review-restaurant">Firefly Burger</p>
+                <p class="review-header">@TorontoEats</p>
+                <div class="stars">
+                    <img src="itm445Star.png" class="star">
+                    <img src="itm445Star.png" class="star">
+                    <img src="itm445Star.png" class="star">
+                </div>
+                <p class="review-text">Firefly has a really unique menu compared to the big chains. The sauces are different and interesting. Service was quick too. Worth a visit if you want something a bit different.</p>
+                <button class="like-btn" onclick="like(this)">👍 Like (<span>0</span>)</button>
+            </div>
+
+            <div class="review-card">
+                <p class="review-restaurant">Bodega Burgers</p>
+                <p class="review-header">@QuickLunchTO</p>
+                <div class="stars">
+                    <img src="itm445Star.png" class="star">
+                    <img src="itm445Star.png" class="star">
+                    <img src="itm445Star.png" class="star">
+                </div>
+                <p class="review-text">Bodega is perfect for a quick lunch break. It's the closest spot and the price is really fair. Nothing fancy but it does the job well. Good value for money.</p>
+                <button class="like-btn" onclick="like(this)">👍 Like (<span>0</span>)</button>
+            </div>
+
         </div>
-        <p>Five Guys is simple but always hits.</p>
-        <button class="like-btn" onclick="like(this)">👍 Like (0)</button>
     </div>
 
-</div>
+    <!-- ADD REVIEW FORM -->
+    <div class="review-form fade-in">
+        <h2>📝 Add Your Review</h2>
+        <select id="review-restaurant">
+            <option value="" disabled selected>Select a restaurant</option>
+            <option value="Jack's Sankofa Square">Jack's Sankofa Square</option>
+            <option value="Five Guys">Five Guys</option>
+            <option value="Firefly Burger">Firefly Burger</option>
+            <option value="Bodega Burgers">Bodega Burgers</option>
+        </select>
+        <input type="text" id="review-username" placeholder="Your username (e.g. @BurgerLover)">
+        <div style="margin-top:12px;">
+            <p style="font-size:13px;color:#555;margin-bottom:6px;">Your Rating:</p>
+            <img src="itm445StarEmpty.png" class="star-input" onclick="setRating(1)" id="s1">
+            <img src="itm445StarEmpty.png" class="star-input" onclick="setRating(2)" id="s2">
+            <img src="itm445StarEmpty.png" class="star-input" onclick="setRating(3)" id="s3">
+            <img src="itm445StarEmpty.png" class="star-input" onclick="setRating(4)" id="s4">
+            <img src="itm445StarEmpty.png" class="star-input" onclick="setRating(5)" id="s5">
+        </div>
+        <textarea id="review-text" rows="4" placeholder="Write your review here..."></textarea>
+        <button onclick="postReview()">Post Review</button>
+    </div>
 
-<!-- JS -->
+    <footer class="footer">
+        <div class="footer-inner">
+            <div class="footer-brand">
+                <h3>Fast Food Burger Locator</h3>
+                <p>Find the best burgers near you in Toronto.</p>
+            </div>
+            <div class="footer-links">
+                <h4>Quick Links</h4>
+                <a href="index.html">Home</a>
+                <a href="results.html">Find Restaurants</a>
+                <a href="build.html">Build Your Meal</a>
+                <a href="quiz.html">Quiz</a>
+                <a href="community.html">Community</a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 Fast Food Burger Locator. All rights reserved.</p>
+        </div>
+    </footer>
 
-<script>
-let selectedRating = 0;
+    <script>
+        let currentRating = 0;
 
-const stars = document.querySelectorAll(".star-input");
-
-// HOVER EFFECT
-stars.forEach(star => {
-    star.addEventListener("mouseover", () => {
-        let val = star.getAttribute("data-value");
-        highlightStars(val);
-    });
-
-    // CLICK (LOCK RATING)
-    star.addEventListener("click", () => {
-        selectedRating = star.getAttribute("data-value");
-    });
-});
-
-// HIGHLIGHT FUNCTION
-function highlightStars(rating) {
-    stars.forEach(star => {
-        let val = star.getAttribute("data-value");
-
-        if (val <= rating) {
-            star.src = "itm445Star.png";
-        } else {
-            star.src = "itm445StarEmpty.png";
+        function setRating(n) {
+            currentRating = n;
+            for (let i = 1; i <= 5; i++) {
+                document.getElementById('s' + i).src = i <= n ? 'itm445Star.png' : 'itm445StarEmpty.png';
+            }
         }
-    });
-}
 
-// LIKE BUTTON
-function like(button) {
-    let count = button.innerText.match(/\d+/);
-    count = count ? parseInt(count[0]) : 0;
-    count++;
-    button.innerText = "👍 Like (" + count + ")";
-}
+        function like(btn) {
+            const span = btn.querySelector('span');
+            span.textContent = parseInt(span.textContent) + 1;
+            btn.disabled = true;
+            btn.style.background = '#888';
+        }
 
-// ADD REVIEW
-function addReview() {
-    let user = document.getElementById("username").value;
-    let text = document.getElementById("reviewText").value;
+        function postReview() {
+            const restaurant = document.getElementById('review-restaurant').value;
+            const username = document.getElementById('review-username').value.trim();
+            const text = document.getElementById('review-text').value.trim();
 
-    if (user === "" || text === "" || selectedRating == 0) {
-        alert("Please fill in all fields and select a rating");
-        return;
-    }
+            if (!restaurant || !username || !text || currentRating === 0) {
+                alert('Please fill in all fields and select a rating!');
+                return;
+            }
 
-    let container = document.getElementById("reviews");
+            const grid = document.getElementById('reviews-grid');
+            const card = document.createElement('div');
+            card.className = 'review-card fade-in';
 
-    let newReview = document.createElement("div");
-    newReview.className = "review-card";
+            let starsHTML = '';
+            for (let i = 0; i < currentRating; i++) {
+                starsHTML += `<img src="itm445Star.png" class="star">`;
+            }
 
-    // GENERATE STARS BASED ON RATING
-    let starsHTML = "";
-    for (let i = 0; i < selectedRating; i++) {
-        starsHTML += `<img src="itm445Star.png" class="star">`;
-    }
+            card.innerHTML = `
+                <p class="review-restaurant">${restaurant}</p>
+                <p class="review-header">${username}</p>
+                <div class="stars">${starsHTML}</div>
+                <p class="review-text">${text}</p>
+                <button class="like-btn" onclick="like(this)">👍 Like (<span>0</span>)</button>
+            `;
 
-    newReview.innerHTML = `
-        <div class="review-header">@${user}</div>
-        <div class="stars">${starsHTML}</div>
-        <p>${text}</p>
-        <button class="like-btn" onclick="like(this)">👍 Like (0)</button>
-    `;
+            grid.prepend(card);
 
-    container.prepend(newReview);
-
-    // RESET FORM
-    document.getElementById("username").value = "";
-    document.getElementById("reviewText").value = "";
-    selectedRating = 0;
-    highlightStars(0);
-}
-</script>
-
+            // Reset form
+            document.getElementById('review-restaurant').value = '';
+            document.getElementById('review-username').value = '';
+            document.getElementById('review-text').value = '';
+            for (let i = 1; i <= 5; i++) {
+                document.getElementById('s' + i).src = 'itm445StarEmpty.png';
+            }
+            currentRating = 0;
+        }
+    </script>
 </body>
 </html>
