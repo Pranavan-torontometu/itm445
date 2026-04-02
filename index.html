@@ -1,72 +1,112 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
     <title>Fast Food Burger Locator</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-<div class="navbar">
-    <h2>Fast Food Burger Locator</h2>
-    <div class="navlinks">
-        <a href="index.html">Home</a>
-        <a href="results.html">Find Restaurants</a>
-        <a href="build.html">Build Your Meal</a>
-        <a href="quiz.html">Quiz</a>
-        <a href="community.html">Community</a>
-    </div>
-</div>
-<div class="hero fade-in">
-    <div class="hero-text">
-        <h1>Discover the Best Burger Near You</h1>
-        <p>Find top rated burgers near you</p>
-        <a href="results.html" class="main-button">Find Restaurants Near Me</a>
-    </div>
-    <div class="hero-image">
-        <img src="burger_reveal.jpg">
-    </div>
-</div>
-<div class="search-bar">
-    <input type="text" placeholder="Enter Location">
-    <input type="text" placeholder="Search Restaurant">
-    <input type="text" placeholder="Distance Filter">
-    <a href="results.html" class="search-button">Search</a>
-</div>
-<h2 class="section-title">Popular Restaurants Near You</h2>
-<div class="restaurants fade-in">
-    <div class="card">
-        <h3>Firefly Burger</h3>
-        <p>Rating:</p>
-        <div class="stars">
-            <img src="itm445Star.png" class="star">
-            <img src="itm445Star.png" class="star">
-            <img src="itm445Star.png" class="star">
+    <div class="navbar">
+        <h2>Fast Food Burger Locator</h2>
+        <div class="navlinks">
+            <a href="index.html" class="active">Home</a>
+            <a href="results.html">Find Restaurants</a>
+            <a href="build.html">Build Your Meal</a>
+            <a href="quiz.html">Quiz</a>
+            <a href="community.html">Community</a>
         </div>
-        <p>Distance: 0.6km Away</p>
-        <img src="burger_card.jpg">
     </div>
-    <div class="card">
-        <h3>Bodega Burgers</h3>
-        <p>Rating:</p>
-        <div class="stars">
-            <img src="itm445Star.png" class="star">
-            <img src="itm445Star.png" class="star">
-            <img src="itm445Star.png" class="star">
+
+    <div class="hero fade-in">
+        <div class="hero-text">
+            <h1>Discover the Best Burger Near You</h1>
+            <p>Find top rated burger restaurants near your location</p>
+            <a href="results.html" class="main-button">Find Restaurants Near Me</a>
         </div>
-        <p>Distance: 0.4km Away</p>
-        <img src="burger_community.jpg">
-    </div>
-    <div class="card">
-        <h3>Five Guys</h3>
-        <p>Rating:</p>
-        <div class="stars">
-            <img src="itm445Star.png" class="star">
-            <img src="itm445Star.png" class="star">
-            <img src="itm445Star.png" class="star">
-            <img src="itm445Star.png" class="star">
+        <div class="hero-image">
+            <img src="burger_reveal.jpg" alt="Delicious burger">
         </div>
-        <p>Distance: 0.5km Away</p>
-        <img src="burger_bun.jpg">
     </div>
-</div>
+
+    <div class="search-bar">
+        <input type="text" placeholder="Enter Location">
+        <input type="text" placeholder="Search Restaurant">
+        <input type="text" placeholder="Distance Filter">
+        <a href="results.html" class="search-button">Search</a>
+    </div>
+
+    <h2 class="section-title">Popular Restaurants Near You</h2>
+    <div class="restaurants fade-in">
+        <div class="card">
+            <h3>Firefly Burger</h3>
+            <div class="stars">
+                <img src="itm445Star.png" class="star">
+                <img src="itm445Star.png" class="star">
+                <img src="itm445Star.png" class="star">
+                <span class="rating-badge rating-3">3.0</span>
+            </div>
+            <p class="card-distance">📍 0.6km Away</p>
+            <p class="card-price">$$</p>
+            <img src="burger.jpg" alt="Firefly Burger">
+        </div>
+        <div class="card">
+            <h3>Bodega Burgers</h3>
+            <div class="stars">
+                <img src="itm445Star.png" class="star">
+                <img src="itm445Star.png" class="star">
+                <img src="itm445Star.png" class="star">
+                <span class="rating-badge rating-3">3.0</span>
+            </div>
+            <p class="card-distance">📍 0.4km Away</p>
+            <p class="card-price">$</p>
+            <img src="burger.jpg" alt="Bodega Burgers">
+        </div>
+        <div class="card">
+            <h3>Five Guys</h3>
+            <div class="stars">
+                <img src="itm445Star.png" class="star">
+                <img src="itm445Star.png" class="star">
+                <img src="itm445Star.png" class="star">
+                <img src="itm445Star.png" class="star">
+                <span class="rating-badge rating-4">4.0</span>
+            </div>
+            <p class="card-distance">📍 0.5km Away</p>
+            <p class="card-price">$</p>
+            <img src="burger.jpg" alt="Five Guys">
+        </div>
+        <div class="card">
+            <h3>Jack's Sankofa</h3>
+            <div class="stars">
+                <img src="itm445Star.png" class="star">
+                <img src="itm445Star.png" class="star">
+                <img src="itm445Star.png" class="star">
+                <img src="itm445Star.png" class="star">
+                <img src="itm445Star.png" class="star">
+                <span class="rating-badge rating-5">5.0</span>
+            </div>
+            <p class="card-distance">📍 0.8km Away</p>
+            <p class="card-price">$$</p>
+            <img src="burger.jpg" alt="Jack's Sankofa">
+        </div>
+    </div>
+
+    <footer class="footer">
+        <div class="footer-inner">
+            <div class="footer-brand">
+                <h3>Fast Food Burger Locator</h3>
+                <p>Find the best burgers near you in Toronto.</p>
+            </div>
+            <div class="footer-links">
+                <h4>Quick Links</h4>
+                <a href="index.html">Home</a>
+                <a href="results.html">Find Restaurants</a>
+                <a href="build.html">Build Your Meal</a>
+                <a href="quiz.html">Quiz</a>
+                <a href="community.html">Community</a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 Fast Food Burger Locator. All rights reserved.</p>
+        </div>
+    </footer>
 </body>
 </html>
