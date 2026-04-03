@@ -1,10 +1,11 @@
+<!-- COMMUNITY PAGE -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Community Reviews - Fast Food Burger Locator</title>
-<link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Community Reviews - Fast Food Burger Locator</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
@@ -22,108 +23,93 @@
 </nav>
 
 <main id="main-content">
-<header class="page-header">
-    <h1>Community Reviews 🍔</h1>
-    <p>See what other burger lovers are saying</p>
-</header>
+    <header>
+        <h1>Community Reviews 🍔</h1>
+        <p>See what other burger lovers are saying</p>
+    </header>
 
-<section class="featured">
-    <img src="burger_reveal.jpg" alt="Featured burger with melted cheese and BBQ sauce on brioche bun">
-    <div>
-        <p><strong>Top Community Pick</strong></p>
-        <h2>Jack's Sankofa Square</h2>
-        <p aria-label="Rated 5 out of 5 stars">★★★★★ (5.0)</p>
-        <p>Most loved burger this week.</p>
-    </div>
-</section>
+    <!-- STATUS MESSAGE -->
+    <p id="status-message" aria-live="polite"></p>
 
-<section class="restaurant-review-section" aria-labelledby="jacks-heading">
-<h2 id="jacks-heading">Jack's Sankofa Square</h2>
+    <!-- ADD REVIEW FORM -->
+    <section aria-labelledby="add-review-heading">
+        <h2 id="add-review-heading">Add Your Review</h2>
 
-<div class="reviews-row" data-restaurant="Jack's Sankofa Square">
+        <form onsubmit="event.preventDefault(); postReview();">
+            
+            <label for="review-restaurant">Restaurant</label>
+            <select id="review-restaurant" required>
+                <option value="">Select a restaurant</option>
+                <option>Jack's Sankofa Square</option>
+                <option>Five Guys</option>
+                <option>Firefly Burger</option>
+                <option>Bodega Burgers</option>
+            </select>
 
-<article class="review-card">
-<p><strong>@BurgerFan21</strong></p>
-<p aria-label="5 stars">★★★★★</p>
-<p>Best burger in the area.</p>
+            <label for="review-username">Username</label>
+            <input type="text" id="review-username" required>
 
-<button onclick="like(this)">👍 Like (<span>0</span>)</button>
-</article>
+            <fieldset>
+                <legend>Rating</legend>
 
-</div>
-</section>
+                <button type="button" onclick="setRating(1)">1</button>
+                <button type="button" onclick="setRating(2)">2</button>
+                <button type="button" onclick="setRating(3)">3</button>
+                <button type="button" onclick="setRating(4)">4</button>
+                <button type="button" onclick="setRating(5)">5</button>
+            </fieldset>
 
-<!-- FORM -->
-<section>
-<h2>Add Your Review</h2>
+            <label for="review-text">Review</label>
+            <textarea id="review-text" required></textarea>
 
-<form onsubmit="event.preventDefault(); postReview();">
+            <button type="submit">Post Review</button>
+        </form>
+    </section>
 
-<label for="restaurant">Restaurant</label>
-<select id="restaurant" required>
-<option value="">Select</option>
-<option>Jack's Sankofa Square</option>
-<option>Five Guys</option>
-<option>Firefly Burger</option>
-<option>Bodega Burgers</option>
-</select>
-
-<label for="username">Username</label>
-<input id="username" required>
-
-<p>Rating</p>
-<div id="rating" role="radiogroup">
-<button type="button" onclick="setRating(1)">1</button>
-<button type="button" onclick="setRating(2)">2</button>
-<button type="button" onclick="setRating(3)">3</button>
-<button type="button" onclick="setRating(4)">4</button>
-<button type="button" onclick="setRating(5)">5</button>
-</div>
-
-<label for="review">Review</label>
-<textarea id="review" required></textarea>
-
-<button type="submit">Post</button>
-
-</form>
-</section>
+    <!-- REVIEWS -->
+    <section aria-labelledby="reviews-heading">
+        <h2 id="reviews-heading">Reviews</h2>
+        <div id="reviews-container"></div>
+    </section>
 </main>
+
+<footer>
+    <p>&copy; 2026 Fast Food Burger Locator</p>
+</footer>
 
 <script>
 let currentRating = 0;
 
-function setRating(n){
+function setRating(n) {
     currentRating = n;
+    document.getElementById("status-message").textContent = "Selected " + n + " star rating";
 }
 
-function like(btn){
-    const span = btn.querySelector("span");
-    span.textContent = Number(span.textContent)+1;
-    btn.disabled = true;
-}
+function postReview() {
+    const restaurant = document.getElementById('review-restaurant').value;
+    const username = document.getElementById('review-username').value;
+    const text = document.getElementById('review-text').value;
 
-function postReview(){
-    const restaurant = document.getElementById("restaurant").value;
-    const username = document.getElementById("username").value;
-    const text = document.getElementById("review").value;
-
-    if(!restaurant || !username || !text || currentRating===0){
-        alert("Fill everything");
+    if (!restaurant || !username || !text || currentRating === 0) {
+        document.getElementById("status-message").textContent = "Please complete all fields.";
         return;
     }
 
-    const row = document.querySelector(`[data-restaurant="${restaurant}"]`);
-
-    const card = document.createElement("article");
-    card.innerHTML = `
-        <p><strong>${username}</strong></p>
-        <p>${"★".repeat(currentRating)}</p>
+    const div = document.createElement('div');
+    div.innerHTML = `
+        <strong>${username}</strong> (${currentRating}/5)
         <p>${text}</p>
-        <button onclick="like(this)">👍 Like (<span>0</span>)</button>
+        <hr>
     `;
 
-    row.appendChild(card);
+    document.getElementById('reviews-container').appendChild(div);
+
+    document.getElementById("status-message").textContent = "Review posted successfully!";
+
+    document.querySelector("form").reset();
+    currentRating = 0;
 }
 </script>
+
 </body>
 </html>
