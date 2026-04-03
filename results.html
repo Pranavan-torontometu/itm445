@@ -10,7 +10,9 @@
     <a class="skip-link" href="#main-content">Skip to main content</a>
 
     <nav class="navbar" aria-label="Main navigation">
-        <h2>Fast Food Burger Locator</h2>
+        <a href="index.html" class="logo-link" aria-label="Fast Food Burger Locator - Return to home">
+            <img src="FastFoodBurgerLocatorLogo.jpg" alt="Fast Food Burger Locator logo" class="logo-img">
+        </a>
         <div class="navlinks">
             <a href="index.html">Home</a>
             <a href="results.html" class="active" aria-current="page">Find Restaurants</a>
@@ -157,7 +159,7 @@
             });
             cards.forEach(card => container.appendChild(card));
             const liveRegion = document.getElementById('sort-announcement');
-            liveRegion.textContent = 'Results sorted by ' + filter;
+            if (liveRegion) liveRegion.textContent = 'Results sorted by ' + filter;
         }
     </script>
     <div id="sort-announcement" aria-live="polite" aria-atomic="true" style="position:absolute;left:-9999px;"></div>
