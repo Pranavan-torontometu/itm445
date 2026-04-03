@@ -50,16 +50,17 @@
                 <a href="results.html" class="search-button" role="button">Search</a>
             </div>
         </section>
-<!-- Original Audio Introduction -->
-<section class="audio-intro" style="background: white; padding: 20px 30px; margin: 20px 25px; border-radius: 10px; box-shadow: 0 2px 8px rgba(0,0,0,0.08); border-left: 4px solid #e63946;">
-    <h3 style="margin-bottom: 10px;">🎧 Listen to our intro</h3>
-    <audio controls aria-label="Website introduction audio">
-        <source src="welcome-audio.m4a" type="audio/mp4">
-        Your browser does not support the audio element.
-    </audio>
-    
-    <p style="font-size: 12px; color: #666; margin-top: 8px;">Original audio recorded by the creator</p>
-</section>
+
+        <!-- Original Audio Introduction -->
+        <section class="audio-intro" style="background: white; padding: 20px 30px; margin: 20px 25px; border-radius: 10px; box-shadow: 0 2px 8px rgba(0,0,0,0.08); border-left: 4px solid #e63946;">
+            <h3 style="margin-bottom: 10px;">🎧 Listen to our intro</h3>
+            <audio controls aria-label="Website introduction audio">
+                <source src="welcome-audio.m4a" type="audio/mp4">
+                Your browser does not support the audio element.
+            </audio>
+            <p style="font-size: 12px; color: #666; margin-top: 8px;">Original audio recorded by the creator</p>
+        </section>
+
         <section aria-labelledby="popular-heading">
             <h2 class="section-title" id="popular-heading">Popular Restaurants Near You</h2>
             <div class="restaurants fade-in">
@@ -74,7 +75,10 @@
                     </div>
                     <p class="card-distance">0.6km Away</p>
                     <p class="card-price" aria-label="Price range: moderate">$$</p>
-                    <img src="burger.jpg" alt="Burger at Firefly Burger restaurant">
+                    <figure>
+                        <img src="burger.jpg" alt="Firefly Burger signature burger">
+                        <figcaption>Beef patty, lettuce, special sauce</figcaption>
+                    </figure>
                 </article>
 
                 <article class="card" aria-label="Bodega Burgers restaurant card">
@@ -87,7 +91,10 @@
                     </div>
                     <p class="card-distance">0.4km Away</p>
                     <p class="card-price" aria-label="Price range: affordable">$</p>
-                    <img src="burger.jpg" alt="Burger at Bodega Burgers restaurant">
+                    <figure>
+                        <img src="burger.jpg" alt="Bodega Burgers classic burger">
+                        <figcaption>Classic beef, fresh toppings</figcaption>
+                    </figure>
                 </article>
 
                 <article class="card" aria-label="Five Guys restaurant card">
@@ -101,7 +108,10 @@
                     </div>
                     <p class="card-distance">0.5km Away</p>
                     <p class="card-price" aria-label="Price range: affordable">$</p>
-                    <img src="burger.jpg" alt="Burger at Five Guys restaurant">
+                    <figure>
+                        <img src="burger.jpg" alt="Five Guys bacon cheeseburger">
+                        <figcaption>Fresh beef, free toppings</figcaption>
+                    </figure>
                 </article>
 
                 <article class="card" aria-label="Jack's Sankofa restaurant card">
@@ -116,7 +126,10 @@
                     </div>
                     <p class="card-distance">0.8km Away</p>
                     <p class="card-price" aria-label="Price range: moderate">$$</p>
-                    <img src="burger.jpg" alt="Burger at Jack's Sankofa restaurant">
+                    <figure>
+                        <img src="burger.jpg" alt="Jack's Sankofa signature smash burger">
+                        <figcaption>Smash burger, melted cheese, BBQ sauce</figcaption>
+                    </figure>
                 </article>
 
             </div>
