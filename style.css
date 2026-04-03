@@ -118,8 +118,8 @@ nav.navbar {
 /* Responsive logo for mobile */
 @media (max-width: 768px) {
     .logo-img {
-        height: 34px;
-        max-width: 140px;
+        height: 40px;
+        width: 40px;
     }
     nav.navbar {
         padding: 10px 20px;
