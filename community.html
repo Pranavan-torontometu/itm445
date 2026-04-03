@@ -29,8 +29,8 @@
         <!-- FEATURED TOP PICK -->
         <section class="featured fade-in" aria-label="Top community pick this week">
             <figure>
-                <img src="burger_reveal.jpg" alt="Homemade cheeseburger with golden brown bun, melted cheese draped over thick beef patty, and dark red BBQ sauce">
-                <figcaption>Close-up of a homemade cheeseburger with golden brown bun, melted cheese draped over a thick beef patty, and dark red BBQ sauce. Warm lighting highlights the gooey cheese and juicy patty. (Original photo by creator)</figcaption>
+                <img src="burger_reveal.jpg" alt="Homemade cheeseburger with melted cheese and BBQ sauce">
+                <figcaption>Homemade cheeseburger — the most loved burger this week</figcaption>
             </figure>
             <div>
                 <p style="font-size:12px;color:#c0392b;font-weight:bold;text-transform:uppercase;letter-spacing:1px;">⭐ Top Community Pick This Week</p>
@@ -185,11 +185,11 @@
                 <div class="form-group">
                     <p style="font-size:13px;font-weight:bold;color:#444;margin-bottom:6px;" id="rating-label">Your Rating</p>
                     <div role="group" aria-labelledby="rating-label">
-                        <img src="itm445StarEmpty.png" class="star-input" onclick="setRating(1)" id="s1" alt="1 star" tabindex="0" onkeypress="if(event.key==='Enter')setRating(1)">
-                        <img src="itm445StarEmpty.png" class="star-input" onclick="setRating(2)" id="s2" alt="2 stars" tabindex="0" onkeypress="if(event.key==='Enter')setRating(2)">
-                        <img src="itm445StarEmpty.png" class="star-input" onclick="setRating(3)" id="s3" alt="3 stars" tabindex="0" onkeypress="if(event.key==='Enter')setRating(3)">
-                        <img src="itm445StarEmpty.png" class="star-input" onclick="setRating(4)" id="s4" alt="4 stars" tabindex="0" onkeypress="if(event.key==='Enter')setRating(4)">
-                        <img src="itm445StarEmpty.png" class="star-input" onclick="setRating(5)" id="s5" alt="5 stars" tabindex="0" onkeypress="if(event.key==='Enter')setRating(5)">
+                        <img src="itm445StarEmpty.png" class="star-input" onclick="setRating(1)" id="s1" alt="" tabindex="0" onkeypress="if(event.key==='Enter')setRating(1)">
+                        <img src="itm445StarEmpty.png" class="star-input" onclick="setRating(2)" id="s2" alt="" tabindex="0" onkeypress="if(event.key==='Enter')setRating(2)">
+                        <img src="itm445StarEmpty.png" class="star-input" onclick="setRating(3)" id="s3" alt="" tabindex="0" onkeypress="if(event.key==='Enter')setRating(3)">
+                        <img src="itm445StarEmpty.png" class="star-input" onclick="setRating(4)" id="s4" alt="" tabindex="0" onkeypress="if(event.key==='Enter')setRating(4)">
+                        <img src="itm445StarEmpty.png" class="star-input" onclick="setRating(5)" id="s5" alt="" tabindex="0" onkeypress="if(event.key==='Enter')setRating(5)">
                     </div>
                 </div>
 
@@ -237,7 +237,7 @@
             for (let i = 1; i <= 5; i++) {
                 const star = document.getElementById('s' + i);
                 star.src = i <= n ? 'itm445Star.png' : 'itm445StarEmpty.png';
-                star.alt = i <= n ? `${i} star${i > 1 ? 's' : ''} selected` : `${i} star${i > 1 ? 's' : ''}`;
+                star.alt = '';
             }
         }
 
