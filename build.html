@@ -1,48 +1,76 @@
+<!-- BUILD PAGE -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Build Your Meal</title>
-<link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Build Your Meal</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
-<a href="#main">Skip to main content</a>
+<a class="skip-link" href="#main-content">Skip to main content</a>
 
 <nav aria-label="Main navigation">
     <a href="index.html">Home</a>
+    <a href="results.html">Find Restaurants</a>
     <a href="build.html" aria-current="page">Build</a>
+    <a href="quiz.html">Quiz</a>
+    <a href="community.html">Community</a>
 </nav>
 
-<main id="main">
+<main id="main-content">
+    <h1>Build Your Burger 🍔</h1>
 
-<h1>Build Your Burger</h1>
+    <section>
+        <h2>Choose Ingredients</h2>
 
-<button onclick="select('bun','White')">White Bun</button>
-<button onclick="select('bun','Brioche')">Brioche</button>
+        <fieldset>
+            <legend>Bun</legend>
+            <button onclick="select('bun','White',1,120)">White</button>
+            <button onclick="select('bun','Wheat',1,110)">Wheat</button>
+        </fieldset>
 
-<button onclick="select('patty','Beef')">Beef</button>
-<button onclick="select('patty','Chicken')">Chicken</button>
+        <fieldset>
+            <legend>Patty</legend>
+            <button onclick="select('patty','Beef',3,280)">Beef</button>
+            <button onclick="select('patty','Chicken',2.5,220)">Chicken</button>
+        </fieldset>
 
-<button onclick="select('sauce','BBQ')">BBQ</button>
+        <fieldset>
+            <legend>Sauce</legend>
+            <button onclick="select('sauce','Ketchup',0,20)">Ketchup</button>
+            <button onclick="select('sauce','Mayo',0,45)">Mayo</button>
+        </fieldset>
+    </section>
 
-<p id="summary" aria-live="polite"></p>
-
-<button onclick="buildBurger()">Build</button>
+    <section aria-live="polite">
+        <h2>Your Total</h2>
+        <p id="price">$0.00</p>
+        <p id="calories">0 kcal</p>
+    </section>
 
 </main>
 
 <script>
 const selections = {};
 
-function select(type, value){
-    selections[type] = value;
+function select(type, name, price, cal) {
+    selections[type] = {price, cal};
+    update();
 }
 
-function buildBurger(){
-    document.getElementById("summary").textContent =
-    Object.values(selections).join(", ");
+function update() {
+    let totalPrice = 0;
+    let totalCal = 0;
+
+    Object.values(selections).forEach(item => {
+        totalPrice += item.price;
+        totalCal += item.cal;
+    });
+
+    document.getElementById("price").textContent = "$" + totalPrice.toFixed(2);
+    document.getElementById("calories").textContent = totalCal + " kcal";
 }
 </script>
 
