@@ -1,127 +1,142 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Results - Fast Food Burger Locator</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div class="navbar">
+    <a class="skip-link" href="#main-content">Skip to main content</a>
+
+    <nav class="navbar" aria-label="Main navigation">
         <h2>Fast Food Burger Locator</h2>
         <div class="navlinks">
             <a href="index.html">Home</a>
-            <a href="results.html" class="active">Find Restaurants</a>
+            <a href="results.html" class="active" aria-current="page">Find Restaurants</a>
             <a href="build.html">Build Your Meal</a>
             <a href="quiz.html">Quiz</a>
             <a href="community.html">Community</a>
         </div>
-    </div>
+    </nav>
 
-    <h2 class="results-title">Found 4 burger restaurants near you</h2>
+    <main id="main-content">
+        <h1 class="results-title">Found 4 burger restaurants near you</h1>
 
-    <div class="results-container fade-in">
-        <div class="results-list">
-            <div class="results-list-header">
-                <h2>Results</h2>
-                <select id="filter-select" class="filter-dropdown" onchange="sortCards(this.value)">
-                    <option value="" disabled selected>Filter</option>
-                    <option value="distance">Distance</option>
-                    <option value="price">Price</option>
-                    <option value="rating">Rating</option>
-                </select>
-            </div>
-
-            <div id="cards-container">
-                <div class="result-card" data-distance="600" data-price="2" data-rating="3">
-                    <img src="burger-icon.jpg" class="result-icon" alt="Firefly Burger">
-                    <div class="result-info">
-                        <h4>Firefly Burger</h4>
-                        <div class="stars">
-                            <img src="itm445Star.png" class="star">
-                            <img src="itm445Star.png" class="star">
-                            <img src="itm445Star.png" class="star">
-                            <span class="rating-badge rating-3">3.0</span>
-                        </div>
-                        <div class="card-meta">
-                            <span class="price-tag">$$</span>
-                            <span class="distance-tag">600m away</span>
-                        </div>
-                    </div>
+        <div class="results-container">
+            <section class="results-list" aria-label="Restaurant results">
+                <div class="results-list-header">
+                    <h2>Results</h2>
+                    <label for="filter-select" class="sr-only">Sort results by</label>
+                    <select id="filter-select" class="filter-dropdown" onchange="sortCards(this.value)" aria-label="Sort results by">
+                        <option value="" disabled selected>Filter</option>
+                        <option value="distance">Distance</option>
+                        <option value="price">Price</option>
+                        <option value="rating">Rating</option>
+                    </select>
                 </div>
 
-                <div class="result-card" data-distance="400" data-price="1" data-rating="3">
-                    <img src="burger-icon.jpg" class="result-icon" alt="Bodega Burgers">
-                    <div class="result-info">
-                        <h4>Bodega Burgers</h4>
-                        <div class="stars">
-                            <img src="itm445Star.png" class="star">
-                            <img src="itm445Star.png" class="star">
-                            <img src="itm445Star.png" class="star">
-                            <span class="rating-badge rating-3">3.0</span>
-                        </div>
-                        <div class="card-meta">
-                            <span class="price-tag">$</span>
-                            <span class="distance-tag">400m away</span>
-                        </div>
-                    </div>
-                </div>
+                <div id="cards-container" role="list">
 
-                <div class="result-card" data-distance="500" data-price="1" data-rating="4">
-                    <img src="burger-icon.jpg" class="result-icon" alt="Five Guys">
-                    <div class="result-info">
-                        <h4>Five Guys</h4>
-                        <div class="stars">
-                            <img src="itm445Star.png" class="star">
-                            <img src="itm445Star.png" class="star">
-                            <img src="itm445Star.png" class="star">
-                            <img src="itm445Star.png" class="star">
-                            <span class="rating-badge rating-4">4.0</span>
+                    <article class="result-card" role="listitem" data-distance="600" data-price="2" data-rating="3" aria-label="Firefly Burger, 3 stars, 600 metres away, moderate price">
+                        <img src="burger-icon.jpg" class="result-icon" alt="Firefly Burger icon">
+                        <div class="result-info">
+                            <h3>Firefly Burger</h3>
+                            <div class="stars" aria-label="3 out of 5 stars">
+                                <img src="itm445Star.png" class="star" alt="">
+                                <img src="itm445Star.png" class="star" alt="">
+                                <img src="itm445Star.png" class="star" alt="">
+                                <span class="rating-badge rating-3" aria-hidden="true">3.0</span>
+                            </div>
+                            <div class="card-meta">
+                                <span class="price-tag" aria-label="Price: moderate">$$</span>
+                                <span class="distance-tag">600m away</span>
+                            </div>
                         </div>
-                        <div class="card-meta">
-                            <span class="price-tag">$</span>
-                            <span class="distance-tag">500m away</span>
-                        </div>
-                    </div>
-                </div>
+                    </article>
 
-                <div class="result-card" data-distance="800" data-price="2" data-rating="5">
-                    <img src="burger-icon.jpg" class="result-icon" alt="Jack's Sankofa">
-                    <div class="result-info">
-                        <h4>Jack's Sankofa</h4>
-                        <div class="stars">
-                            <img src="itm445Star.png" class="star">
-                            <img src="itm445Star.png" class="star">
-                            <img src="itm445Star.png" class="star">
-                            <img src="itm445Star.png" class="star">
-                            <img src="itm445Star.png" class="star">
-                            <span class="rating-badge rating-5">5.0</span>
+                    <article class="result-card" role="listitem" data-distance="400" data-price="1" data-rating="3" aria-label="Bodega Burgers, 3 stars, 400 metres away, affordable">
+                        <img src="burger-icon.jpg" class="result-icon" alt="Bodega Burgers icon">
+                        <div class="result-info">
+                            <h3>Bodega Burgers</h3>
+                            <div class="stars" aria-label="3 out of 5 stars">
+                                <img src="itm445Star.png" class="star" alt="">
+                                <img src="itm445Star.png" class="star" alt="">
+                                <img src="itm445Star.png" class="star" alt="">
+                                <span class="rating-badge rating-3" aria-hidden="true">3.0</span>
+                            </div>
+                            <div class="card-meta">
+                                <span class="price-tag" aria-label="Price: affordable">$</span>
+                                <span class="distance-tag">400m away</span>
+                            </div>
                         </div>
-                        <div class="card-meta">
-                            <span class="price-tag">$$</span>
-                            <span class="distance-tag">800m away</span>
+                    </article>
+
+                    <article class="result-card" role="listitem" data-distance="500" data-price="1" data-rating="4" aria-label="Five Guys, 4 stars, 500 metres away, affordable">
+                        <img src="burger-icon.jpg" class="result-icon" alt="Five Guys icon">
+                        <div class="result-info">
+                            <h3>Five Guys</h3>
+                            <div class="stars" aria-label="4 out of 5 stars">
+                                <img src="itm445Star.png" class="star" alt="">
+                                <img src="itm445Star.png" class="star" alt="">
+                                <img src="itm445Star.png" class="star" alt="">
+                                <img src="itm445Star.png" class="star" alt="">
+                                <span class="rating-badge rating-4" aria-hidden="true">4.0</span>
+                            </div>
+                            <div class="card-meta">
+                                <span class="price-tag" aria-label="Price: affordable">$</span>
+                                <span class="distance-tag">500m away</span>
+                            </div>
                         </div>
-                    </div>
+                    </article>
+
+                    <article class="result-card" role="listitem" data-distance="800" data-price="2" data-rating="5" aria-label="Jack's Sankofa, 5 stars, 800 metres away, moderate price">
+                        <img src="burger-icon.jpg" class="result-icon" alt="Jack's Sankofa icon">
+                        <div class="result-info">
+                            <h3>Jack's Sankofa</h3>
+                            <div class="stars" aria-label="5 out of 5 stars">
+                                <img src="itm445Star.png" class="star" alt="">
+                                <img src="itm445Star.png" class="star" alt="">
+                                <img src="itm445Star.png" class="star" alt="">
+                                <img src="itm445Star.png" class="star" alt="">
+                                <img src="itm445Star.png" class="star" alt="">
+                                <span class="rating-badge rating-5" aria-hidden="true">5.0</span>
+                            </div>
+                            <div class="card-meta">
+                                <span class="price-tag" aria-label="Price: moderate">$$</span>
+                                <span class="distance-tag">800m away</span>
+                            </div>
+                        </div>
+                    </article>
+
                 </div>
-            </div>
+            </section>
+
+            <section class="map" aria-label="Map showing nearby burger restaurants">
+                <img src="map.jpg" alt="Google Maps screenshot showing the locations of Firefly Burger, Bodega Burgers, Five Guys, and Jack's Sankofa Square near Toronto Metropolitan University">
+            </section>
         </div>
+    </main>
 
-        <div class="map">
-            <img src="map.jpg" alt="Map showing nearby burger restaurants">
-        </div>
-    </div>
-
-    <footer class="footer">
+    <footer class="footer" aria-label="Site footer">
         <div class="footer-inner">
-            <div class="footer-brand">
-                <h3>Fast Food Burger Locator</h3>
+            <div class="footer-col">
+                <p class="footer-brand-name">Fast Food Burger Locator</p>
                 <p>Find the best burgers near you in Toronto.</p>
             </div>
-            <div class="footer-links">
+            <div class="footer-col">
                 <h4>Quick Links</h4>
                 <a href="index.html">Home</a>
                 <a href="results.html">Find Restaurants</a>
                 <a href="build.html">Build Your Meal</a>
                 <a href="quiz.html">Quiz</a>
                 <a href="community.html">Community</a>
+            </div>
+            <div class="footer-col">
+                <h4>Contact Us</h4>
+                <p>📧 <a href="mailto:info@fastfoodburgerlocator.ca">info@fastfoodburgerlocator.ca</a></p>
+                <p style="margin-top:8px;">📞 <a href="tel:+14165550192">(416) 555-0192</a></p>
+                <p style="margin-top:8px;">📍 Toronto, Ontario</p>
             </div>
         </div>
         <div class="footer-bottom">
@@ -140,7 +155,12 @@
                 return 0;
             });
             cards.forEach(card => container.appendChild(card));
+            // Announce to screen readers
+            const liveRegion = document.getElementById('sort-announcement');
+            liveRegion.textContent = 'Results sorted by ' + filter;
         }
     </script>
+    <!-- Live region for screen reader announcements -->
+    <div id="sort-announcement" aria-live="polite" aria-atomic="true" style="position:absolute;left:-9999px;"></div>
 </body>
 </html>
