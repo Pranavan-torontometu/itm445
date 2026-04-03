@@ -10,7 +10,9 @@
     <a class="skip-link" href="#main-content">Skip to main content</a>
 
     <nav class="navbar" aria-label="Main navigation">
-        <h2>Fast Food Burger Locator</h2>
+        <a href="index.html" class="logo-link" aria-label="Fast Food Burger Locator - Return to home">
+            <img src="FastFoodBurgerLocatorLogo.jpg" alt="Fast Food Burger Locator logo" class="logo-img">
+        </a>
         <div class="navlinks">
             <a href="index.html" class="active" aria-current="page">Home</a>
             <a href="results.html">Find Restaurants</a>
@@ -28,9 +30,24 @@
                 <a href="results.html" class="main-button">Find Restaurants Near Me</a>
             </div>
             <div class="hero-image">
-                <img src="burger_reveal.jpg" alt="Homemade cheeseburger with golden bun, melted cheese, and BBQ sauce">
+                <video id="hero-video" width="420" autoplay muted playsinline style="border-radius: 12px; display: block;">
+                    <source src="burger-sizzle.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+                <img id="hero-image" src="burger_reveal.jpg" alt="Homemade cheeseburger with golden bun, melted cheese, and BBQ sauce" style="border-radius: 12px; display: none;">
             </div>
         </section>
+
+        <script>
+            const video = document.getElementById('hero-video');
+            const image = document.getElementById('hero-image');
+            if (video) {
+                video.addEventListener('ended', function() {
+                    video.style.display = 'none';
+                    image.style.display = 'block';
+                });
+            }
+        </script>
 
         <section aria-label="Search for restaurants">
             <div class="search-bar" role="search">
