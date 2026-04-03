@@ -1,118 +1,134 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Build Your Meal - Fast Food Burger Locator</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div class="navbar">
+    <a class="skip-link" href="#main-content">Skip to main content</a>
+
+    <nav class="navbar" aria-label="Main navigation">
         <h2>Fast Food Burger Locator</h2>
         <div class="navlinks">
             <a href="index.html">Home</a>
             <a href="results.html">Find Restaurants</a>
-            <a href="build.html" class="active">Build Your Meal</a>
+            <a href="build.html" class="active" aria-current="page">Build Your Meal</a>
             <a href="quiz.html">Quiz</a>
             <a href="community.html">Community</a>
         </div>
-    </div>
+    </nav>
 
-    <h2 class="builder-title">🍔 Build Your Burger</h2>
-    <p class="builder-subtitle">Pick your ingredients and see your creation come to life</p>
+    <main id="main-content">
+        <h1 class="builder-title">🍔 Build Your Burger</h1>
+        <p class="builder-subtitle">Pick your ingredients and see your creation come to life</p>
 
-    <div class="builder-container">
-        <div class="builder-options">
-            <h3>Choose Your Ingredients</h3>
+        <div class="builder-container">
 
-            <div class="ingredient-group">
-                <label>🍞 Bun</label>
-                <div class="ingredient-options">
-                    <button class="ingredient-btn" onclick="select(this, 'bun', 'White', 1.00, 120)">White</button>
-                    <button class="ingredient-btn" onclick="select(this, 'bun', 'Wheat', 1.00, 110)">Wheat</button>
-                    <button class="ingredient-btn" onclick="select(this, 'bun', 'Brioche', 1.50, 150)">Brioche</button>
+            <section class="builder-options" aria-label="Ingredient selector">
+                <h2>Choose Your Ingredients</h2>
+
+                <fieldset class="ingredient-group">
+                    <legend>🍞 Bun</legend>
+                    <div class="ingredient-options" role="group" aria-label="Choose a bun">
+                        <button class="ingredient-btn" onclick="select(this, 'bun', 'White', 1.00, 120)" aria-pressed="false">White</button>
+                        <button class="ingredient-btn" onclick="select(this, 'bun', 'Wheat', 1.00, 110)" aria-pressed="false">Wheat</button>
+                        <button class="ingredient-btn" onclick="select(this, 'bun', 'Brioche', 1.50, 150)" aria-pressed="false">Brioche</button>
+                    </div>
+                </fieldset>
+
+                <fieldset class="ingredient-group">
+                    <legend>🥩 Protein</legend>
+                    <div class="ingredient-options" role="group" aria-label="Choose a protein">
+                        <button class="ingredient-btn" onclick="select(this, 'patty', 'Beef', 3.00, 280)" aria-pressed="false">Beef</button>
+                        <button class="ingredient-btn" onclick="select(this, 'patty', 'Chicken', 2.50, 220)" aria-pressed="false">Chicken</button>
+                        <button class="ingredient-btn" onclick="select(this, 'patty', 'Veggie', 2.00, 180)" aria-pressed="false">Veggie</button>
+                    </div>
+                </fieldset>
+
+                <fieldset class="ingredient-group">
+                    <legend>🧃 Sauce</legend>
+                    <div class="ingredient-options" role="group" aria-label="Choose a sauce">
+                        <button class="ingredient-btn" onclick="select(this, 'sauce', 'Ketchup', 0, 20)" aria-pressed="false">Ketchup</button>
+                        <button class="ingredient-btn" onclick="select(this, 'sauce', 'Mayo', 0, 45)" aria-pressed="false">Mayo</button>
+                        <button class="ingredient-btn" onclick="select(this, 'sauce', 'BBQ', 0, 30)" aria-pressed="false">BBQ</button>
+                    </div>
+                </fieldset>
+
+                <fieldset class="ingredient-group">
+                    <legend>🥗 Toppings <span style="font-weight:normal;color:#777;font-size:11px;">(pick any)</span></legend>
+                    <div class="ingredient-options" role="group" aria-label="Choose toppings">
+                        <button class="ingredient-btn topping-btn" onclick="toggleTopping(this, 'Lettuce', 0, 5)" aria-pressed="false">Lettuce</button>
+                        <button class="ingredient-btn topping-btn" onclick="toggleTopping(this, 'Tomato', 0, 10)" aria-pressed="false">Tomato</button>
+                        <button class="ingredient-btn topping-btn" onclick="toggleTopping(this, 'Cheese', 0.50, 60)" aria-pressed="false">Cheese +$0.50</button>
+                        <button class="ingredient-btn topping-btn" onclick="toggleTopping(this, 'Bacon', 1.00, 80)" aria-pressed="false">Bacon +$1.00</button>
+                    </div>
+                </fieldset>
+
+                <button class="build-btn" id="build-btn" onclick="buildBurger()" disabled aria-disabled="true">
+                    Build My Burger 🍔
+                </button>
+            </section>
+
+            <section class="builder-preview" aria-label="Burger preview and estimator" aria-live="polite">
+                <h2>Your Burger</h2>
+
+                <div class="burger-stack" id="burger-stack" role="img" aria-label="Visual burger builder showing selected ingredients">
+                    <div class="layer layer-bun-top" id="layer-bun-top"></div>
+                    <div class="layer layer-lettuce" id="layer-lettuce"></div>
+                    <div class="layer layer-tomato" id="layer-tomato"></div>
+                    <div class="layer layer-cheese" id="layer-cheese"></div>
+                    <div class="layer layer-bacon" id="layer-bacon"></div>
+                    <div class="layer layer-ketchup" id="layer-ketchup"></div>
+                    <div class="layer layer-mayo" id="layer-mayo"></div>
+                    <div class="layer layer-bbq" id="layer-bbq"></div>
+                    <div class="layer layer-patty" id="layer-patty"></div>
+                    <div class="layer layer-bun-bottom" id="layer-bun-bottom"></div>
                 </div>
-            </div>
 
-            <div class="ingredient-group">
-                <label>🥩 Protein</label>
-                <div class="ingredient-options">
-                    <button class="ingredient-btn" onclick="select(this, 'patty', 'Beef', 3.00, 280)">Beef</button>
-                    <button class="ingredient-btn" onclick="select(this, 'patty', 'Chicken', 2.50, 220)">Chicken</button>
-                    <button class="ingredient-btn" onclick="select(this, 'patty', 'Veggie', 2.00, 180)">Veggie</button>
+                <div class="estimator" aria-label="Price and calorie estimate">
+                    <div class="estimator-row">
+                        <span>Estimated Price</span>
+                        <span id="price-display" aria-live="polite">$0.00</span>
+                    </div>
+                    <div class="estimator-row total">
+                        <span>Estimated Calories</span>
+                        <span id="cal-display" aria-live="polite">0 kcal</span>
+                    </div>
                 </div>
-            </div>
 
-            <div class="ingredient-group">
-                <label>🧃 Sauce</label>
-                <div class="ingredient-options">
-                    <button class="ingredient-btn" onclick="select(this, 'sauce', 'Ketchup', 0, 20)">Ketchup</button>
-                    <button class="ingredient-btn" onclick="select(this, 'sauce', 'Mayo', 0, 45)">Mayo</button>
-                    <button class="ingredient-btn" onclick="select(this, 'sauce', 'BBQ', 0, 30)">BBQ</button>
+                <div class="result-reveal" id="result-reveal" aria-live="polite">
+                    <img src="burger_reveal.jpg" alt="A finished homemade cheeseburger with melted cheese and BBQ sauce — the result of building your meal">
+                    <h3>Your Burger is Ready! 🎉</h3>
+                    <p id="result-summary"></p>
+                    <a href="results.html" class="find-near-btn">🍔 Find This Near You</a>
+                    <button class="reset-btn" onclick="resetBuilder()">Start Over</button>
                 </div>
-            </div>
+            </section>
 
-            <div class="ingredient-group">
-                <label>🥗 Toppings <span style="font-weight:normal;color:#aaa;font-size:11px;">(pick any)</span></label>
-                <div class="ingredient-options">
-                    <button class="ingredient-btn topping-btn" onclick="toggleTopping(this, 'Lettuce', 0, 5)">Lettuce</button>
-                    <button class="ingredient-btn topping-btn" onclick="toggleTopping(this, 'Tomato', 0, 10)">Tomato</button>
-                    <button class="ingredient-btn topping-btn" onclick="toggleTopping(this, 'Cheese', 0.50, 60)">Cheese +$0.50</button>
-                    <button class="ingredient-btn topping-btn" onclick="toggleTopping(this, 'Bacon', 1.00, 80)">Bacon +$1.00</button>
-                </div>
-            </div>
-
-            <button class="build-btn" id="build-btn" onclick="buildBurger()" disabled>Build My Burger 🍔</button>
         </div>
+    </main>
 
-        <div class="builder-preview">
-            <h3>Your Burger</h3>
-
-            <div class="burger-stack" id="burger-stack">
-                <div class="layer layer-bun-top" id="layer-bun-top"></div>
-                <div class="layer layer-lettuce" id="layer-lettuce"></div>
-                <div class="layer layer-tomato" id="layer-tomato"></div>
-                <div class="layer layer-cheese" id="layer-cheese"></div>
-                <div class="layer layer-bacon" id="layer-bacon"></div>
-                <div class="layer layer-ketchup" id="layer-ketchup"></div>
-                <div class="layer layer-mayo" id="layer-mayo"></div>
-                <div class="layer layer-bbq" id="layer-bbq"></div>
-                <div class="layer layer-patty" id="layer-patty"></div>
-                <div class="layer layer-bun-bottom" id="layer-bun-bottom"></div>
-            </div>
-
-            <div class="estimator">
-                <div class="estimator-row">
-                    <span>Estimated Price</span>
-                    <span id="price-display">$0.00</span>
-                </div>
-                <div class="estimator-row total">
-                    <span>Estimated Calories</span>
-                    <span id="cal-display">0 kcal</span>
-                </div>
-            </div>
-
-            <div class="result-reveal" id="result-reveal">
-                <img src="burger_reveal.jpg" alt="Your finished burger">
-                <h4>Your Burger is Ready! 🎉</h4>
-                <p id="result-summary"></p>
-                <a href="results.html" class="find-near-btn">🍔 Find This Near You</a>
-                <button class="reset-btn" onclick="resetBuilder()">Start Over</button>
-            </div>
-        </div>
-    </div>
-
-    <footer class="footer">
+    <footer class="footer" aria-label="Site footer">
         <div class="footer-inner">
-            <div class="footer-brand">
-                <h3>Fast Food Burger Locator</h3>
+            <div class="footer-col">
+                <p class="footer-brand-name">Fast Food Burger Locator</p>
                 <p>Find the best burgers near you in Toronto.</p>
             </div>
-            <div class="footer-links">
+            <div class="footer-col">
                 <h4>Quick Links</h4>
                 <a href="index.html">Home</a>
                 <a href="results.html">Find Restaurants</a>
                 <a href="build.html">Build Your Meal</a>
                 <a href="quiz.html">Quiz</a>
                 <a href="community.html">Community</a>
+            </div>
+            <div class="footer-col">
+                <h4>Contact Us</h4>
+                <p>📧 <a href="mailto:info@fastfoodburgerlocator.ca">info@fastfoodburgerlocator.ca</a></p>
+                <p style="margin-top:8px;">📞 <a href="tel:+14165550192">(416) 555-0192</a></p>
+                <p style="margin-top:8px;">📍 Toronto, Ontario</p>
             </div>
         </div>
         <div class="footer-bottom">
@@ -132,20 +148,34 @@
             Object.values(toppings).forEach(t => { totalPrice += t.price; totalCals += t.cals; });
             document.getElementById('price-display').textContent = '$' + totalPrice.toFixed(2);
             document.getElementById('cal-display').textContent = totalCals + ' kcal';
-            document.getElementById('build-btn').disabled = !(selections.bun && selections.patty && selections.sauce);
+            const ready = selections.bun && selections.patty && selections.sauce;
+            const btn = document.getElementById('build-btn');
+            btn.disabled = !ready;
+            btn.setAttribute('aria-disabled', !ready);
         }
 
         function select(btn, type, name, price, cals) {
-            btn.closest('.ingredient-options').querySelectorAll('.ingredient-btn').forEach(b => b.classList.remove('selected'));
+            btn.closest('.ingredient-options').querySelectorAll('.ingredient-btn').forEach(b => {
+                b.classList.remove('selected');
+                b.setAttribute('aria-pressed', 'false');
+            });
             btn.classList.add('selected');
+            btn.setAttribute('aria-pressed', 'true');
             selections[type] = { name, price, cals };
             updateStack();
             updateEstimator();
         }
 
         function toggleTopping(btn, name, price, cals) {
-            if (toppings[name]) { delete toppings[name]; btn.classList.remove('selected'); }
-            else { toppings[name] = { price, cals }; btn.classList.add('selected'); }
+            if (toppings[name]) {
+                delete toppings[name];
+                btn.classList.remove('selected');
+                btn.setAttribute('aria-pressed', 'false');
+            } else {
+                toppings[name] = { price, cals };
+                btn.classList.add('selected');
+                btn.setAttribute('aria-pressed', 'true');
+            }
             updateStack();
             updateEstimator();
         }
@@ -161,14 +191,12 @@
                 bunEl.className = 'layer layer-bun-top';
                 bunBotEl.className = 'layer layer-bun-bottom';
             }
-
             const pattyEl = document.getElementById('layer-patty');
             if (selections.patty) {
                 pattyEl.className = `layer layer-patty patty-${selections.patty.name.toLowerCase()} visible`;
             } else {
                 pattyEl.className = 'layer layer-patty';
             }
-
             ['ketchup', 'mayo', 'bbq'].forEach(s => {
                 document.getElementById(`layer-${s}`).className = `layer layer-${s}`;
             });
@@ -176,7 +204,6 @@
                 const sauceEl = document.getElementById(`layer-${selections.sauce.name.toLowerCase()}`);
                 if (sauceEl) sauceEl.classList.add('visible');
             }
-
             ['lettuce', 'tomato', 'cheese', 'bacon'].forEach(t => {
                 const el = document.getElementById(`layer-${t}`);
                 const key = t.charAt(0).toUpperCase() + t.slice(1);
@@ -196,7 +223,10 @@
         function resetBuilder() {
             selections.bun = null; selections.patty = null; selections.sauce = null;
             Object.keys(toppings).forEach(k => delete toppings[k]);
-            document.querySelectorAll('.ingredient-btn').forEach(b => b.classList.remove('selected'));
+            document.querySelectorAll('.ingredient-btn').forEach(b => {
+                b.classList.remove('selected');
+                b.setAttribute('aria-pressed', 'false');
+            });
             document.getElementById('burger-stack').style.display = 'flex';
             document.getElementById('result-reveal').classList.remove('show');
             document.getElementById('build-btn').style.display = 'block';
