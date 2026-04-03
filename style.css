@@ -816,3 +816,15 @@ footer.footer {
     transform: scale(1.01);
     box-shadow: 0 4px 12px rgba(0,0,0,0.12);
 }
+
+/* Fix community featured image size */
+.featured figure {
+    width: 130px;
+    margin: 0;
+}
+
+.featured img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+}
