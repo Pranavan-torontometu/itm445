@@ -292,14 +292,18 @@ footer.footer {
 
 /* ── RATING BADGES ── */
 .rating-badge {
-    display: inline-block;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
     padding: 2px 8px;
     border-radius: 12px;
     font-size: 12px;
     font-weight: bold;
     color: white;
-    margin-left: 4px;
+    margin-left: 6px;
+    height: 22px;
     vertical-align: middle;
+    line-height: 1;
 }
 .rating-5 { background: #2e7d32; }
 .rating-4 { background: #558b2f; }
@@ -385,16 +389,21 @@ footer.footer {
 }
 
 .builder-options h3 { margin: 0 0 20px 0; font-size: 20px; border-bottom: 3px solid #e63946; padding-bottom: 10px; }
-.ingredient-group { margin-bottom: 20px; }
+.ingredient-group {
+    margin-bottom: 16px;
+    border: 1.5px solid #ddd;
+    border-radius: 10px;
+    padding: 12px 14px;
+    background: #fafafa;
+}
 
 .ingredient-group legend {
-    display: block;
     font-weight: bold;
     font-size: 13px;
     color: #444;
     text-transform: uppercase;
     letter-spacing: 1px;
-    margin-bottom: 8px;
+    padding: 0 6px;
 }
 
 .ingredient-options { display: flex; gap: 8px; flex-wrap: wrap; }
