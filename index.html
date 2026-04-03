@@ -1,107 +1,138 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>Fast Food Burger Locator</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home - Fast Food Burger Locator</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div class="navbar">
+    <!-- Skip link for keyboard users (WCAG 2.4.1) -->
+    <a class="skip-link" href="#main-content">Skip to main content</a>
+
+    <nav class="navbar" aria-label="Main navigation">
         <h2>Fast Food Burger Locator</h2>
         <div class="navlinks">
-            <a href="index.html" class="active">Home</a>
+            <a href="index.html" class="active" aria-current="page">Home</a>
             <a href="results.html">Find Restaurants</a>
             <a href="build.html">Build Your Meal</a>
             <a href="quiz.html">Quiz</a>
             <a href="community.html">Community</a>
         </div>
-    </div>
+    </nav>
 
-    <div class="hero fade-in">
-        <div class="hero-text">
-            <h1>Discover the Best Burger Near You</h1>
-            <p>Find top rated burger restaurants near your location</p>
-            <a href="results.html" class="main-button">Find Restaurants Near Me</a>
-        </div>
-        <div class="hero-image">
-            <img src="burger_reveal.jpg" alt="Delicious burger">
-        </div>
-    </div>
+    <main id="main-content">
+        <section class="hero fade-in" aria-label="Welcome banner">
+            <div class="hero-text">
+                <h1>Discover the Best Burger Near You</h1>
+                <p>Find top rated burger restaurants near your location</p>
+                <a href="results.html" class="main-button">Find Restaurants Near Me</a>
+            </div>
+            <div class="hero-image">
+                <img src="burger_reveal.jpg" alt="A juicy homemade cheeseburger with melted cheese and BBQ sauce on a brioche bun">
+            </div>
+        </section>
 
-    <div class="search-bar">
-        <input type="text" placeholder="Enter Location">
-        <input type="text" placeholder="Search Restaurant">
-        <input type="text" placeholder="Distance Filter">
-        <a href="results.html" class="search-button">Search</a>
-    </div>
+        <section aria-label="Search for restaurants">
+            <div class="search-bar" role="search">
+                <div class="search-field">
+                    <label for="location-input">Location</label>
+                    <input type="text" id="location-input" name="location" placeholder="Enter your location" autocomplete="street-address">
+                </div>
+                <div class="search-field">
+                    <label for="restaurant-input">Restaurant</label>
+                    <input type="text" id="restaurant-input" name="restaurant" placeholder="Search restaurant name">
+                </div>
+                <div class="search-field">
+                    <label for="distance-input">Distance</label>
+                    <input type="text" id="distance-input" name="distance" placeholder="e.g. 1km, 5km">
+                </div>
+                <a href="results.html" class="search-button" role="button">Search</a>
+            </div>
+        </section>
 
-    <h2 class="section-title">Popular Restaurants Near You</h2>
-    <div class="restaurants fade-in">
-        <div class="card">
-            <h3>Firefly Burger</h3>
-            <div class="stars">
-                <img src="itm445Star.png" class="star">
-                <img src="itm445Star.png" class="star">
-                <img src="itm445Star.png" class="star">
-                <span class="rating-badge rating-3">3.0</span>
-            </div>
-            <p class="card-distance">📍 0.6km Away</p>
-            <p class="card-price">$$</p>
-            <img src="burger.jpg" alt="Firefly Burger">
-        </div>
-        <div class="card">
-            <h3>Bodega Burgers</h3>
-            <div class="stars">
-                <img src="itm445Star.png" class="star">
-                <img src="itm445Star.png" class="star">
-                <img src="itm445Star.png" class="star">
-                <span class="rating-badge rating-3">3.0</span>
-            </div>
-            <p class="card-distance">📍 0.4km Away</p>
-            <p class="card-price">$</p>
-            <img src="burger.jpg" alt="Bodega Burgers">
-        </div>
-        <div class="card">
-            <h3>Five Guys</h3>
-            <div class="stars">
-                <img src="itm445Star.png" class="star">
-                <img src="itm445Star.png" class="star">
-                <img src="itm445Star.png" class="star">
-                <img src="itm445Star.png" class="star">
-                <span class="rating-badge rating-4">4.0</span>
-            </div>
-            <p class="card-distance">📍 0.5km Away</p>
-            <p class="card-price">$</p>
-            <img src="burger.jpg" alt="Five Guys">
-        </div>
-        <div class="card">
-            <h3>Jack's Sankofa</h3>
-            <div class="stars">
-                <img src="itm445Star.png" class="star">
-                <img src="itm445Star.png" class="star">
-                <img src="itm445Star.png" class="star">
-                <img src="itm445Star.png" class="star">
-                <img src="itm445Star.png" class="star">
-                <span class="rating-badge rating-5">5.0</span>
-            </div>
-            <p class="card-distance">📍 0.8km Away</p>
-            <p class="card-price">$$</p>
-            <img src="burger.jpg" alt="Jack's Sankofa">
-        </div>
-    </div>
+        <section aria-labelledby="popular-heading">
+            <h2 class="section-title" id="popular-heading">Popular Restaurants Near You</h2>
+            <div class="restaurants fade-in">
 
-    <footer class="footer">
+                <article class="card" aria-label="Firefly Burger restaurant card">
+                    <h3>Firefly Burger</h3>
+                    <div class="stars" aria-label="Rating: 3 out of 5 stars">
+                        <img src="itm445Star.png" class="star" alt="">
+                        <img src="itm445Star.png" class="star" alt="">
+                        <img src="itm445Star.png" class="star" alt="">
+                        <span class="rating-badge rating-3" aria-hidden="true">3.0</span>
+                    </div>
+                    <p class="card-distance">0.6km Away</p>
+                    <p class="card-price" aria-label="Price range: moderate">$$</p>
+                    <img src="burger.jpg" alt="Burger at Firefly Burger restaurant">
+                </article>
+
+                <article class="card" aria-label="Bodega Burgers restaurant card">
+                    <h3>Bodega Burgers</h3>
+                    <div class="stars" aria-label="Rating: 3 out of 5 stars">
+                        <img src="itm445Star.png" class="star" alt="">
+                        <img src="itm445Star.png" class="star" alt="">
+                        <img src="itm445Star.png" class="star" alt="">
+                        <span class="rating-badge rating-3" aria-hidden="true">3.0</span>
+                    </div>
+                    <p class="card-distance">0.4km Away</p>
+                    <p class="card-price" aria-label="Price range: affordable">$</p>
+                    <img src="burger.jpg" alt="Burger at Bodega Burgers restaurant">
+                </article>
+
+                <article class="card" aria-label="Five Guys restaurant card">
+                    <h3>Five Guys</h3>
+                    <div class="stars" aria-label="Rating: 4 out of 5 stars">
+                        <img src="itm445Star.png" class="star" alt="">
+                        <img src="itm445Star.png" class="star" alt="">
+                        <img src="itm445Star.png" class="star" alt="">
+                        <img src="itm445Star.png" class="star" alt="">
+                        <span class="rating-badge rating-4" aria-hidden="true">4.0</span>
+                    </div>
+                    <p class="card-distance">0.5km Away</p>
+                    <p class="card-price" aria-label="Price range: affordable">$</p>
+                    <img src="burger.jpg" alt="Burger at Five Guys restaurant">
+                </article>
+
+                <article class="card" aria-label="Jack's Sankofa restaurant card">
+                    <h3>Jack's Sankofa</h3>
+                    <div class="stars" aria-label="Rating: 5 out of 5 stars">
+                        <img src="itm445Star.png" class="star" alt="">
+                        <img src="itm445Star.png" class="star" alt="">
+                        <img src="itm445Star.png" class="star" alt="">
+                        <img src="itm445Star.png" class="star" alt="">
+                        <img src="itm445Star.png" class="star" alt="">
+                        <span class="rating-badge rating-5" aria-hidden="true">5.0</span>
+                    </div>
+                    <p class="card-distance">0.8km Away</p>
+                    <p class="card-price" aria-label="Price range: moderate">$$</p>
+                    <img src="burger.jpg" alt="Burger at Jack's Sankofa restaurant">
+                </article>
+
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer" aria-label="Site footer">
         <div class="footer-inner">
-            <div class="footer-brand">
-                <h3>Fast Food Burger Locator</h3>
+            <div class="footer-col">
+                <p class="footer-brand-name">Fast Food Burger Locator</p>
                 <p>Find the best burgers near you in Toronto.</p>
             </div>
-            <div class="footer-links">
+            <div class="footer-col">
                 <h4>Quick Links</h4>
                 <a href="index.html">Home</a>
                 <a href="results.html">Find Restaurants</a>
                 <a href="build.html">Build Your Meal</a>
                 <a href="quiz.html">Quiz</a>
                 <a href="community.html">Community</a>
+            </div>
+            <div class="footer-col">
+                <h4>Contact Us</h4>
+                <p>📧 <a href="mailto:info@fastfoodburgerlocator.ca">info@fastfoodburgerlocator.ca</a></p>
+                <p style="margin-top:8px;">📞 <a href="tel:+14165550192">(416) 555-0192</a></p>
+                <p style="margin-top:8px;">📍 Toronto, Ontario</p>
             </div>
         </div>
         <div class="footer-bottom">
