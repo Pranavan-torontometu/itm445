@@ -651,11 +651,6 @@ footer.footer {
     transition: border 0.2s;
 }
 
-:focus {
-    outline: 3px solid #000;
-    outline-offset: 2px;
-}
-
 .review-form select:focus,
 .review-form input:focus,
 .review-form textarea:focus { border-color: #c0392b; }
