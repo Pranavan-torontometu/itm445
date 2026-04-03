@@ -75,14 +75,15 @@ body {
 
 .footer-col a {
     display: block;
-    color: #aaa;
+    color: #aaa !important;
     text-decoration: none;
     font-size: 13px;
     margin-bottom: 8px;
     transition: color 0.2s;
 }
 
-.footer-col a:hover { color: #e63946; }
+.footer-col a:visited { color: #aaa !important; }
+.footer-col a:hover { color: #e63946 !important; }
 
 .footer-brand-name {
     color: #e63946;
@@ -218,8 +219,22 @@ body {
 .card-price { font-size: 13px; color: #e63946; font-weight: bold; }
 
 /* ── STARS ── */
-.stars { display: flex; align-items: center; gap: 2px; margin: 5px 0; }
-.star { width: 18px; height: 18px; object-fit: contain; }
+.stars { display: flex; align-items: center; gap: 2px; margin: 5px 0; flex-wrap: nowrap; }
+.star {
+    width: 22px !important;
+    height: 22px !important;
+    max-width: 22px !important;
+    max-height: 22px !important;
+    object-fit: contain;
+    display: inline-block;
+    flex-shrink: 0;
+}
+.result-card .star {
+    width: 16px !important;
+    height: 16px !important;
+    max-width: 16px !important;
+    max-height: 16px !important;
+}
 
 .rating-badge {
     display: inline-block;
