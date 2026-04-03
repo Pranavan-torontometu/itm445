@@ -1,78 +1,85 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Burger Quiz - Fast Food Burger Locator</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div class="navbar">
+    <a class="skip-link" href="#main-content">Skip to main content</a>
+
+    <nav class="navbar" aria-label="Main navigation">
         <h2>Fast Food Burger Locator</h2>
         <div class="navlinks">
             <a href="index.html">Home</a>
             <a href="results.html">Find Restaurants</a>
             <a href="build.html">Build Your Meal</a>
-            <a href="quiz.html" class="active">Quiz</a>
+            <a href="quiz.html" class="active" aria-current="page">Quiz</a>
             <a href="community.html">Community</a>
         </div>
-    </div>
+    </nav>
 
-    <div class="quiz-container fade-in">
-        <h2>🍔 Burger Personality Quiz</h2>
-        <p class="quiz-subtitle">Answer 4 questions to find your perfect burger match</p>
+    <main id="main-content">
+        <div class="quiz-container fade-in">
+            <h1>🍔 Burger Personality Quiz</h1>
+            <p class="quiz-subtitle">Answer 4 questions to find your perfect burger match</p>
 
-        <div id="quiz-questions">
-            <div class="quiz-question">
-                <h3>1. What kind of flavour are you craving?</h3>
-                <div class="quiz-options">
-                    <button class="quiz-btn" onclick="answer(this, 0, 'classic')">🍔 Classic &amp; Simple</button>
-                    <button class="quiz-btn" onclick="answer(this, 0, 'bold')">🔥 Bold &amp; Flavourful</button>
-                    <button class="quiz-btn" onclick="answer(this, 0, 'spicy')">🌶️ Spicy &amp; Adventurous</button>
-                </div>
+            <form id="quiz-questions" aria-label="Burger personality quiz">
+
+                <fieldset class="quiz-question">
+                    <legend><h2>1. What kind of flavour are you craving?</h2></legend>
+                    <div class="quiz-options" role="group" aria-label="Flavour preference">
+                        <button type="button" class="quiz-btn" onclick="answer(this, 0, 'classic')" aria-pressed="false">🍔 Classic &amp; Simple</button>
+                        <button type="button" class="quiz-btn" onclick="answer(this, 0, 'bold')" aria-pressed="false">🔥 Bold &amp; Flavourful</button>
+                        <button type="button" class="quiz-btn" onclick="answer(this, 0, 'spicy')" aria-pressed="false">🌶️ Spicy &amp; Adventurous</button>
+                    </div>
+                </fieldset>
+
+                <fieldset class="quiz-question">
+                    <legend><h2>2. What's your budget vibe?</h2></legend>
+                    <div class="quiz-options" role="group" aria-label="Budget preference">
+                        <button type="button" class="quiz-btn" onclick="answer(this, 1, 'cheap')" aria-pressed="false">💸 Keep it affordable</button>
+                        <button type="button" class="quiz-btn" onclick="answer(this, 1, 'mid')" aria-pressed="false">💳 Mid-range is fine</button>
+                        <button type="button" class="quiz-btn" onclick="answer(this, 1, 'splurge')" aria-pressed="false">💎 Worth the splurge</button>
+                    </div>
+                </fieldset>
+
+                <fieldset class="quiz-question">
+                    <legend><h2>3. How far are you willing to walk?</h2></legend>
+                    <div class="quiz-options" role="group" aria-label="Distance preference">
+                        <button type="button" class="quiz-btn" onclick="answer(this, 2, 'close')" aria-pressed="false">🚶 As close as possible</button>
+                        <button type="button" class="quiz-btn" onclick="answer(this, 2, 'medium')" aria-pressed="false">🏃 A short walk is fine</button>
+                        <button type="button" class="quiz-btn" onclick="answer(this, 2, 'far')" aria-pressed="false">🗺️ I'll go the distance</button>
+                    </div>
+                </fieldset>
+
+                <fieldset class="quiz-question">
+                    <legend><h2>4. What matters most to you?</h2></legend>
+                    <div class="quiz-options" role="group" aria-label="Priority preference">
+                        <button type="button" class="quiz-btn" onclick="answer(this, 3, 'value')" aria-pressed="false">⚡ Fast &amp; good value</button>
+                        <button type="button" class="quiz-btn" onclick="answer(this, 3, 'quality')" aria-pressed="false">⭐ Top quality ingredients</button>
+                        <button type="button" class="quiz-btn" onclick="answer(this, 3, 'unique')" aria-pressed="false">🌟 Something unique</button>
+                    </div>
+                </fieldset>
+
+                <button type="button" class="quiz-submit" id="quiz-submit" onclick="showResult()" disabled aria-disabled="true">
+                    Find My Burger Match 🍔
+                </button>
+            </form>
+
+            <div class="quiz-result" id="quiz-result" role="region" aria-live="polite" aria-label="Quiz result">
+                <div class="result-emoji" id="result-emoji" aria-hidden="true">🍔</div>
+                <h2>Your Perfect Match Is...</h2>
+                <p class="result-restaurant" id="result-restaurant"></p>
+                <p class="result-desc" id="result-desc"></p>
+                <a href="results.html" class="main-button" style="margin-right:10px;">Find It Near Me 📍</a>
+                <button type="button" class="retake-btn" onclick="retakeQuiz()">Retake Quiz</button>
             </div>
-
-            <div class="quiz-question">
-                <h3>2. What's your budget vibe?</h3>
-                <div class="quiz-options">
-                    <button class="quiz-btn" onclick="answer(this, 1, 'cheap')">💸 Keep it affordable</button>
-                    <button class="quiz-btn" onclick="answer(this, 1, 'mid')">💳 Mid-range is fine</button>
-                    <button class="quiz-btn" onclick="answer(this, 1, 'splurge')">💎 Worth the splurge</button>
-                </div>
-            </div>
-
-            <div class="quiz-question">
-                <h3>3. How far are you willing to walk?</h3>
-                <div class="quiz-options">
-                    <button class="quiz-btn" onclick="answer(this, 2, 'close')">🚶 As close as possible</button>
-                    <button class="quiz-btn" onclick="answer(this, 2, 'medium')">🏃 A short walk is fine</button>
-                    <button class="quiz-btn" onclick="answer(this, 2, 'far')">🗺️ I'll go the distance</button>
-                </div>
-            </div>
-
-            <div class="quiz-question">
-                <h3>4. What matters most to you?</h3>
-                <div class="quiz-options">
-                    <button class="quiz-btn" onclick="answer(this, 3, 'value')">⚡ Fast &amp; good value</button>
-                    <button class="quiz-btn" onclick="answer(this, 3, 'quality')">⭐ Top quality ingredients</button>
-                    <button class="quiz-btn" onclick="answer(this, 3, 'unique')">🌟 Something unique</button>
-                </div>
-            </div>
-
-            <button class="quiz-submit" id="quiz-submit" onclick="showResult()" disabled>
-                Find My Burger Match 🍔
-            </button>
         </div>
+    </main>
 
-        <div class="quiz-result" id="quiz-result">
-            <div class="result-emoji" id="result-emoji">🍔</div>
-            <h2>Your Perfect Match Is...</h2>
-            <div class="result-restaurant" id="result-restaurant"></div>
-            <p class="result-desc" id="result-desc"></p>
-            <a href="results.html" class="main-button" style="margin-right:10px;">Find It Near Me 📍</a>
-            <button class="retake-btn" onclick="retakeQuiz()">Retake Quiz</button>
-        </div>
-    </div>
-
-    <footer class="footer">
+    <footer class="footer" aria-label="Site footer">
         <div class="footer-inner">
             <div class="footer-col">
                 <p class="footer-brand-name">Fast Food Burger Locator</p>
@@ -88,8 +95,8 @@
             </div>
             <div class="footer-col">
                 <h4>Contact Us</h4>
-                <p>📧 info@fastfoodburgerlocator.ca</p>
-                <p style="margin-top:8px;">📞 (416) 555-0192</p>
+                <p>📧 <a href="mailto:info@fastfoodburgerlocator.ca">info@fastfoodburgerlocator.ca</a></p>
+                <p style="margin-top:8px;">📞 <a href="tel:+14165550192">(416) 555-0192</a></p>
                 <p style="margin-top:8px;">📍 Toronto, Ontario</p>
             </div>
         </div>
@@ -105,7 +112,7 @@
             jacks: {
                 name: "Jack's Sankofa Square",
                 emoji: "🌟",
-                desc: "You have great taste and you're not afraid to go the extra mile for it. Jack's Sankofa Square is the top-rated spot in the area — rich flavours, high quality ingredients, and a burger experience that's truly worth it. Rated 5 stars for a reason.",
+                desc: "You have great taste and you're not afraid to go the extra mile for it. Jack's Sankofa Square is the top-rated spot in the area — rich flavours, high quality ingredients, and a burger experience that's truly worth it.",
                 triggers: ['bold', 'splurge', 'quality', 'unique', 'far']
             },
             fiveguys: {
@@ -117,24 +124,29 @@
             bodega: {
                 name: "Bodega Burgers",
                 emoji: "💸",
-                desc: "Smart, fast, and close by — Bodega Burgers is your kind of spot. The closest restaurant in the area with great value for money. Perfect when you need a solid burger without the wait or the price tag.",
+                desc: "Smart, fast, and close by — Bodega Burgers is your kind of spot. The closest restaurant in the area with great value for money. Perfect when you need a solid burger without the wait.",
                 triggers: ['cheap', 'close', 'value']
             },
             firefly: {
                 name: "Firefly Burger",
                 emoji: "🔥",
-                desc: "You like things with a bit of character. Firefly Burger brings bold flavours and a unique take on the classic burger. If you're looking for something that actually excites your taste buds, this is your spot.",
+                desc: "You like things with a bit of character. Firefly Burger brings bold flavours and a unique take on the classic burger. If you're looking for something that excites your taste buds, this is your spot.",
                 triggers: ['bold', 'spicy', 'unique', 'mid']
             }
         };
 
         function answer(btn, qIndex, value) {
-            // Remove selected from siblings
-            btn.closest('.quiz-options').querySelectorAll('.quiz-btn').forEach(b => b.classList.remove('selected'));
+            btn.closest('.quiz-options').querySelectorAll('.quiz-btn').forEach(b => {
+                b.classList.remove('selected');
+                b.setAttribute('aria-pressed', 'false');
+            });
             btn.classList.add('selected');
+            btn.setAttribute('aria-pressed', 'true');
             answers[qIndex] = value;
-            // Enable submit only when all answered
-            document.getElementById('quiz-submit').disabled = answers.some(a => a === null);
+            const ready = !answers.some(a => a === null);
+            const submitBtn = document.getElementById('quiz-submit');
+            submitBtn.disabled = !ready;
+            submitBtn.setAttribute('aria-disabled', !ready);
         }
 
         function showResult() {
@@ -151,12 +163,18 @@
             document.getElementById('result-desc').textContent = r.desc;
             document.getElementById('quiz-questions').style.display = 'none';
             document.getElementById('quiz-result').classList.add('show');
+            document.getElementById('quiz-result').focus();
         }
 
         function retakeQuiz() {
             answers.fill(null);
-            document.querySelectorAll('.quiz-btn').forEach(b => b.classList.remove('selected'));
-            document.getElementById('quiz-submit').disabled = true;
+            document.querySelectorAll('.quiz-btn').forEach(b => {
+                b.classList.remove('selected');
+                b.setAttribute('aria-pressed', 'false');
+            });
+            const submitBtn = document.getElementById('quiz-submit');
+            submitBtn.disabled = true;
+            submitBtn.setAttribute('aria-disabled', 'true');
             document.getElementById('quiz-questions').style.display = 'block';
             document.getElementById('quiz-result').classList.remove('show');
         }
