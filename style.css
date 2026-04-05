@@ -80,6 +80,7 @@ nav.navbar {
     .logo-img {
     height: 32px;
     width: auto;
+    max-width: 150px;
     object-fit: contain;
     transition: transform 0.2s;
 }
