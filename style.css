@@ -61,7 +61,7 @@ nav.navbar {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 12px 40px;
+    padding: 16px 40px;  /* Increased padding for better spacing */
     box-shadow: 0 2px 8px rgba(0,0,0,0.2);
 }
 
@@ -73,9 +73,9 @@ nav.navbar {
 }
 
 .logo-img {
-    height: 42px;
+    height: 48px;
     width: auto;
-    max-width: 170px;
+    max-width: 190px;
     object-fit: contain;
     transition: transform 0.2s;
 }
@@ -89,7 +89,7 @@ nav.navbar {
     display: none;
 }
 
-/* Nav links */
+/* Nav links - improved spacing */
 .navlinks a {
     color: white;
     margin-left: 10px;
@@ -97,7 +97,7 @@ nav.navbar {
     font-weight: 600;
     font-size: 0.9rem;
     letter-spacing: 0.3px;
-    padding: 8px 12px;
+    padding: 10px 16px;  /* Increased padding */
     border-radius: 5px;
     transition: background 0.2s, color 0.2s;
 }
@@ -118,16 +118,15 @@ nav.navbar {
 /* Responsive logo for mobile */
 @media (max-width: 768px) {
     .logo-img {
-    height: 70px;
-    width: auto;
-    max-width: 300px;
-}
+        height: 38px;
+        max-width: 150px;
+    }
     nav.navbar {
-        padding: 10px 20px;
+        padding: 12px 20px;
     }
     .navlinks a {
-        font-size: 0.8rem;
-        padding: 6px 8px;
+        font-size: 0.75rem;
+        padding: 6px 10px;
     }
 }
 
@@ -275,8 +274,8 @@ footer.footer {
     gap: 10px;
     background: white;
     padding: 20px 30px;
-    margin: 25px;
-    box-shadow: 0 3px 12px rgba(0,0,0,0.12);
+    margin: 30px 25px 25px 25px;  /* Increased top margin for separation */
+    box-shadow: 0 4px 15px rgba(0,0,0,0.15);  /* Stronger shadow to stand out */
     border-radius: 8px;
     border: 2px solid #e63946;
     align-items: center;
@@ -328,12 +327,15 @@ footer.footer {
     padding: 20px;
     width: 250px;
     border-radius: 10px;
-    box-shadow: 0 3px 10px rgba(0,0,0,0.1);
-    border-top: 4px solid #e63946;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);  /* Stronger shadow */
+    border-top: 5px solid #e63946;  /* Thicker red border */
     transition: transform 0.2s, box-shadow 0.2s;
 }
 
-.card:hover { transform: scale(1.03); box-shadow: 0 6px 18px rgba(0,0,0,0.15); }
+.card:hover { 
+    transform: scale(1.03); 
+    box-shadow: 0 8px 20px rgba(230,57,70,0.2);  /* Red glow on hover */
+}
 
 .card h3 {
     font-size: 1.1rem;
@@ -394,7 +396,7 @@ footer.footer {
     max-height: 16px !important;
 }
 
-/* ── RATING BADGES ── */
+/* ── RATING BADGES (Colour coded) ── */
 .rating-badge {
     display: inline-flex;
     align-items: center;
@@ -409,11 +411,11 @@ footer.footer {
     vertical-align: middle;
     line-height: 1;
 }
-.rating-5 { background: #2e7d32; }
-.rating-4 { background: #558b2f; }
-.rating-3 { background: #b8860b; color: white; }
-.rating-2 { background: #e65100; }
-.rating-1 { background: #c62828; }
+.rating-5 { background: #2e7d32; }  /* Green - Best */
+.rating-4 { background: #558b2f; }  /* Light Green - Great */
+.rating-3 { background: #b8860b; }  /* Gold/Brown - Good */
+.rating-2 { background: #e65100; }  /* Orange - Okay */
+.rating-1 { background: #c62828; }  /* Red - Poor */
 
 /* ── RESULTS PAGE ── */
 .results-title {
@@ -677,7 +679,7 @@ footer.footer {
 .reset-btn:hover,
 .reset-btn:focus { background: #c0392b; color: white; }
 
-/* ── QUIZ PAGE ── */
+/* ── QUIZ PAGE (Improved text hierarchy) ── */
 .quiz-container { max-width: 650px; margin: 40px auto; padding: 0 20px 40px; }
 .quiz-container h1 {
     font-size: 2rem;
@@ -697,8 +699,8 @@ footer.footer {
 }
 
 .quiz-question h2 {
-    font-size: 1.1rem;
-    font-weight: 600;
+    font-size: 1.3rem;  /* Larger for better hierarchy */
+    font-weight: 700;
     margin-bottom: 14px;
     color: #2f2f2f;
 }
@@ -710,7 +712,7 @@ footer.footer {
     background: white;
     border-radius: 20px;
     cursor: pointer;
-    font-size: 14px;
+    font-size: 0.9rem;
     transition: all 0.2s;
     color: #2f2f2f;
 }
@@ -807,10 +809,22 @@ footer.footer {
 .like-btn:focus { background: #922b21; }
 
 .review-form { margin: 0 25px 30px 25px; background: white; padding: 24px; border-radius: 10px; box-shadow: 0 3px 10px rgba(0,0,0,0.08); }
-.review-form h2 { font-size: 1.3rem; font-weight: 700; margin-bottom: 15px; border-left: 4px solid #e63946; padding-left: 12px; }
+.review-form h2 { 
+    font-size: 1.4rem;  /* Larger for better hierarchy */
+    font-weight: 700; 
+    margin-bottom: 15px; 
+    border-left: 4px solid #e63946; 
+    padding-left: 12px; 
+}
 
 .form-group { margin-top: 12px; }
-.form-group label { display: block; font-size: 13px; font-weight: bold; color: #444; margin-bottom: 5px; }
+.form-group label { 
+    display: block; 
+    font-size: 0.85rem; 
+    font-weight: 700; 
+    color: #444; 
+    margin-bottom: 5px; 
+}
 
 .review-form select,
 .review-form input,
