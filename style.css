@@ -77,9 +77,9 @@ nav.navbar {
 }
 
 .logo-img {
-    height: 48px;
+    .logo-img {
+    height: 45px;
     width: auto;
-    max-width: 190px;
     object-fit: contain;
     transition: transform 0.2s;
 }
