@@ -77,12 +77,16 @@ nav.navbar {
 }
 
 .logo-img {
-    .logo-img {
-    height: 32px;
+    max-height: 40px;
     width: auto;
-    max-width: 150px;
+    max-width: 180px;
     object-fit: contain;
-    transition: transform 0.2s;
+}
+
+.logo-link {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
 }
 
 .logo-img:hover {
