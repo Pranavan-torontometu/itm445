@@ -56,6 +56,10 @@ body, p, li, .review-text, .result-desc {
 
 /* ── NAVBAR ── */
 nav.navbar {
+    
+    position: sticky;
+    top: 0;
+    z-index: 1000;
     background: #e63946;
     color: white;
     display: flex;
