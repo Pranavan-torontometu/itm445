@@ -224,8 +224,21 @@
         </div>
     </footer>
 
+    <button class="back-to-top" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="Back to top">↑</button>
+
     <script>
         let currentRating = 0;
+
+        function showMessage(message, isError = false) {
+            const existing = document.querySelector('.toast-message');
+            if (existing) existing.remove();
+            const msg = document.createElement('div');
+            msg.textContent = message;
+            msg.className = 'toast-message';
+            if (isError) msg.classList.add('error');
+            document.body.appendChild(msg);
+            setTimeout(() => msg.remove(), 3000);
+        }
 
         function setRating(n) {
             currentRating = n;
@@ -242,6 +255,7 @@
             btn.disabled = true;
             btn.setAttribute('aria-label', 'You liked this review');
             btn.style.background = '#888';
+            showMessage('❤️ You liked this review!');
         }
 
         function postReview() {
@@ -249,7 +263,7 @@
             const username = document.getElementById('review-username').value.trim();
             const text = document.getElementById('review-text').value.trim();
             if (!restaurant || !username || !text || currentRating === 0) {
-                alert('Please fill in all fields and select a rating!');
+                showMessage('❌ Please fill in all fields and select a rating!', true);
                 return;
             }
             const sections = document.querySelectorAll('.restaurant-review-section');
@@ -276,6 +290,9 @@
             if (targetRow) {
                 targetRow.appendChild(card);
                 targetRow.closest('.restaurant-review-section').scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+                showMessage('✅ Review posted successfully!');
+            } else {
+                showMessage('❌ Could not find restaurant section', true);
             }
             document.getElementById('review-restaurant').value = '';
             document.getElementById('review-username').value = '';
