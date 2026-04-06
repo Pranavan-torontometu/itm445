@@ -53,6 +53,7 @@
                                 <span class="price-tag" aria-label="Price: moderate">$$</span>
                                 <span class="distance-tag">600m away</span>
                             </div>
+                            <div class="hours-tag">🕒 Open until 10PM</div>
                         </div>
                     </article>
 
@@ -70,6 +71,7 @@
                                 <span class="price-tag" aria-label="Price: affordable">$</span>
                                 <span class="distance-tag">400m away</span>
                             </div>
+                            <div class="hours-tag">🕒 Open until 11PM</div>
                         </div>
                     </article>
 
@@ -88,6 +90,7 @@
                                 <span class="price-tag" aria-label="Price: affordable">$</span>
                                 <span class="distance-tag">500m away</span>
                             </div>
+                            <div class="hours-tag">🕒 Open until 10PM</div>
                         </div>
                     </article>
 
@@ -107,6 +110,7 @@
                                 <span class="price-tag" aria-label="Price: moderate">$$</span>
                                 <span class="distance-tag">800m away</span>
                             </div>
+                            <div class="hours-tag">🕒 Open until 9PM</div>
                         </div>
                     </article>
                 </div>
@@ -114,8 +118,8 @@
 
             <section class="map" aria-label="Map showing nearby burger restaurants">
                 <figure>
-                    <img src="map.jpg" alt="Map showing four burger restaurants near Toronto Metropolitan University">
-                    <figcaption>Map of burger restaurants near TMU campus</figcaption>
+                    <img src="map.jpg" alt="Map showing four burger restaurants near Toronto Metropolitan University" class="map-image" onclick="alert('Full Google Maps integration coming soon!')">
+                    <figcaption>Map of burger restaurants near TMU campus (click for demo)</figcaption>
                 </figure>
             </section>
         </div>
@@ -146,6 +150,8 @@
             <p>&copy; 2026 Fast Food Burger Locator. All rights reserved.</p>
         </div>
     </footer>
+
+    <button class="back-to-top" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="Back to top">↑</button>
 
     <script>
         function sortCards(filter) {
