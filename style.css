@@ -882,3 +882,11 @@ footer.footer {
     transform: scale(1.01);
     box-shadow: 0 4px 12px rgba(0,0,0,0.12);
 }
+
+.result-card {
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+.result-card:hover {
+    transform: translateX(5px);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+}
