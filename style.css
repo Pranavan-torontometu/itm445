@@ -76,11 +76,11 @@ nav.navbar {
 }
 
 .logo-img {
-    height: 38px;
+    height: 54px;
     width: auto;
-    max-width: 150px;
+    max-width: 220px;
     object-fit: contain;
-    transition: transform 0.2s;
+    display: block;
 }
 
 .logo-img:hover {
