@@ -31,40 +31,40 @@
                 <fieldset class="quiz-question">
                     <legend><h2>1. What kind of flavour are you craving?</h2></legend>
                     <div class="quiz-options" role="group" aria-label="Flavour preference">
-                        <button type="button" class="quiz-btn" onclick="answer(this, 0, 'classic')" aria-pressed="false" title="Classic and simple flavour profile">🍔 Classic &amp; Simple</button>
-                        <button type="button" class="quiz-btn" onclick="answer(this, 0, 'bold')" aria-pressed="false" title="Bold and flavourful taste">🔥 Bold &amp; Flavourful</button>
-                        <button type="button" class="quiz-btn" onclick="answer(this, 0, 'spicy')" aria-pressed="false" title="Spicy and adventurous flavours">🌶️ Spicy &amp; Adventurous</button>
+                        <button type="button" class="quiz-btn" onclick="answer(this, 0, 'classic')" aria-pressed="false">🍔 Classic &amp; Simple</button>
+                        <button type="button" class="quiz-btn" onclick="answer(this, 0, 'bold')" aria-pressed="false">🔥 Bold &amp; Flavourful</button>
+                        <button type="button" class="quiz-btn" onclick="answer(this, 0, 'spicy')" aria-pressed="false">🌶️ Spicy &amp; Adventurous</button>
                     </div>
                 </fieldset>
 
                 <fieldset class="quiz-question">
                     <legend><h2>2. What's your budget vibe?</h2></legend>
                     <div class="quiz-options" role="group" aria-label="Budget preference">
-                        <button type="button" class="quiz-btn" onclick="answer(this, 1, 'cheap')" aria-pressed="false" title="Keep it affordable">💸 Keep it affordable</button>
-                        <button type="button" class="quiz-btn" onclick="answer(this, 1, 'mid')" aria-pressed="false" title="Mid-range is fine">💳 Mid-range is fine</button>
-                        <button type="button" class="quiz-btn" onclick="answer(this, 1, 'splurge')" aria-pressed="false" title="Worth the splurge">💎 Worth the splurge</button>
+                        <button type="button" class="quiz-btn" onclick="answer(this, 1, 'cheap')" aria-pressed="false">💸 Keep it affordable</button>
+                        <button type="button" class="quiz-btn" onclick="answer(this, 1, 'mid')" aria-pressed="false">💳 Mid-range is fine</button>
+                        <button type="button" class="quiz-btn" onclick="answer(this, 1, 'splurge')" aria-pressed="false">💎 Worth the splurge</button>
                     </div>
                 </fieldset>
 
                 <fieldset class="quiz-question">
                     <legend><h2>3. How far are you willing to walk?</h2></legend>
                     <div class="quiz-options" role="group" aria-label="Distance preference">
-                        <button type="button" class="quiz-btn" onclick="answer(this, 2, 'close')" aria-pressed="false" title="As close as possible">🚶 As close as possible</button>
-                        <button type="button" class="quiz-btn" onclick="answer(this, 2, 'medium')" aria-pressed="false" title="A short walk is fine">🏃 A short walk is fine</button>
-                        <button type="button" class="quiz-btn" onclick="answer(this, 2, 'far')" aria-pressed="false" title="I'll go the distance">🗺️ I'll go the distance</button>
+                        <button type="button" class="quiz-btn" onclick="answer(this, 2, 'close')" aria-pressed="false">🚶 As close as possible</button>
+                        <button type="button" class="quiz-btn" onclick="answer(this, 2, 'medium')" aria-pressed="false">🏃 A short walk is fine</button>
+                        <button type="button" class="quiz-btn" onclick="answer(this, 2, 'far')" aria-pressed="false">🗺️ I'll go the distance</button>
                     </div>
                 </fieldset>
 
                 <fieldset class="quiz-question">
                     <legend><h2>4. What matters most to you?</h2></legend>
                     <div class="quiz-options" role="group" aria-label="Priority preference">
-                        <button type="button" class="quiz-btn" onclick="answer(this, 3, 'value')" aria-pressed="false" title="Fast and good value">⚡ Fast &amp; good value</button>
-                        <button type="button" class="quiz-btn" onclick="answer(this, 3, 'quality')" aria-pressed="false" title="Top quality ingredients">⭐ Top quality ingredients</button>
-                        <button type="button" class="quiz-btn" onclick="answer(this, 3, 'unique')" aria-pressed="false" title="Something unique">🌟 Something unique</button>
+                        <button type="button" class="quiz-btn" onclick="answer(this, 3, 'value')" aria-pressed="false">⚡ Fast &amp; good value</button>
+                        <button type="button" class="quiz-btn" onclick="answer(this, 3, 'quality')" aria-pressed="false">⭐ Top quality ingredients</button>
+                        <button type="button" class="quiz-btn" onclick="answer(this, 3, 'unique')" aria-pressed="false">🌟 Something unique</button>
                     </div>
                 </fieldset>
 
-                <button type="button" class="quiz-submit" id="quiz-submit" onclick="showResult()" disabled aria-disabled="true" title="Submit your answers to find your burger match">
+                <button type="button" class="quiz-submit" id="quiz-submit" onclick="showResult()" disabled aria-disabled="true">
                     Find My Burger Match 🍔
                 </button>
             </form>
@@ -74,8 +74,8 @@
                 <h2>Your Perfect Match Is...</h2>
                 <p class="result-restaurant" id="result-restaurant"></p>
                 <p class="result-desc" id="result-desc"></p>
-                <a href="results.html" class="main-button" style="margin-right:10px;" title="Find restaurants near you">Find It Near Me 📍</a>
-                <button type="button" class="retake-btn" onclick="retakeQuiz()" title="Take the quiz again">Retake Quiz</button>
+                <a href="results.html" class="main-button" style="margin-right:10px;">Find It Near Me 📍</a>
+                <button type="button" class="retake-btn" onclick="retakeQuiz()">Retake Quiz</button>
             </div>
         </div>
     </main>
