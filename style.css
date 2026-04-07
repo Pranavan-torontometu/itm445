@@ -282,17 +282,22 @@ footer.footer {
     box-shadow: 0 4px 15px rgba(0,0,0,0.15);
     border-radius: 8px;
     border: 2px solid #e63946;
-    align-items: flex-end;
+
+    /* FIXED */
+    align-items: stretch;
     flex-wrap: wrap;
 }
 
-.search-field {
+.search-field,
+.distance-slider-field {
     display: flex;
     flex-direction: column;
     flex: 1;
     min-width: 140px;
+    justify-content: space-between;
 }
 
+/* Labels */
 .search-bar label {
     font-size: 13px;
     font-weight: bold;
@@ -300,44 +305,24 @@ footer.footer {
     margin-bottom: 5px;
 }
 
+/* Inputs */
 .search-bar input[type="text"] {
     padding: 10px 14px;
     border: 1px solid #ddd;
     border-radius: 5px;
     font-size: 14px;
     outline: none;
-    transition: border 0.2s;
 }
 
-.search-bar input[type="text"]:focus {
-    border-color: #e63946;
-    outline: 3px solid #e63946;
-    outline-offset: 2px;
-}
-
-/* ── DISTANCE SLIDER ── */
-.distance-slider-field {
-    display: flex;
-    flex-direction: column;
-    flex: 1;
-    min-width: 160px;
-    justify-content: flex-end;
-}
-
-.distance-slider-field label {
-    font-size: 13px;
-    font-weight: bold;
-    color: #444;
-    margin-bottom: 5px;
-}
-
+/* Slider value */
 .distance-value {
     font-size: 13px;
     font-weight: bold;
     color: #e63946;
-    margin-bottom: 6px;
+    margin-bottom: 4px; /* tightened */
 }
 
+/* Range slider */
 input[type="range"] {
     -webkit-appearance: none;
     appearance: none;
@@ -345,29 +330,23 @@ input[type="range"] {
     height: 6px;
     background: #ddd;
     border-radius: 3px;
-    outline: none;
     cursor: pointer;
 }
 
+/* Thumb */
 input[type="range"]::-webkit-slider-thumb {
     -webkit-appearance: none;
-    appearance: none;
     width: 18px;
     height: 18px;
     border-radius: 50%;
     background: #e63946;
     cursor: pointer;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.2);
     border: none;
 }
 
-input[type="range"]::-webkit-slider-thumb:hover {
-    transform: scale(1.2);
-}
-
-input[type="range"]:focus {
-    outline: 3px solid #e63946;
-    outline-offset: 2px;
+/* Button alignment fix */
+.search-button {
+    align-self: flex-end;
 }
 
 /* ── SECTION TITLE ── */
