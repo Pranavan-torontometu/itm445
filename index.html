@@ -11,7 +11,7 @@
 
     <nav class="navbar" aria-label="Main navigation">
         <a href="index.html" class="logo-link" aria-label="Fast Food Burger Locator - Home">
-            <img src="logo.png" class="logo-img" alt="Fast Food Burger Locator logo">
+            <img src="logo.png" class="logo-img" alt="Fast Food Burger Locator logo" title="Fast Food Burger Locator - Home">
         </a>
         <div class="navlinks">
             <a href="index.html" class="active" aria-current="page">Home</a>
@@ -30,11 +30,11 @@
                 <a href="results.html" class="main-button">Find Restaurants Near Me</a>
             </div>
             <div class="hero-image">
-                <video id="hero-video" width="420" controls playsinline style="border-radius: 12px; display: block;">
+                <video id="hero-video" width="420" controls playsinline style="border-radius: 12px; display: block;" title="Promotional video showing sizzling burgers on a grill">
                     <source src="burger-sizzle.mp4" type="video/mp4">
                     Your browser does not support the video tag.
                 </video>
-                <img id="hero-image" src="burger_reveal.jpg" alt="Homemade cheeseburger with golden bun, melted cheese, and BBQ sauce" style="border-radius: 12px; display: none;">
+                <img id="hero-image" src="burger_reveal.jpg" alt="Homemade cheeseburger with golden bun, melted cheese, and BBQ sauce" title="Homemade cheeseburger with melted cheese and BBQ sauce" style="border-radius: 12px; display: none;">
             </div>
         </section>
 
@@ -49,28 +49,28 @@
             }
         </script>
 
-        <!-- SEARCH BAR WITH DISTANCE SLIDER -->
+        <!-- SEARCH BAR -->
         <section aria-label="Search for restaurants">
             <div class="search-bar" role="search">
                 <div class="search-field">
                     <label for="location-input">Location</label>
-                    <input type="text" id="location-input" name="location" placeholder="Enter your location" autocomplete="street-address">
+                    <input type="text" id="location-input" name="location" placeholder="Enter your location" autocomplete="street-address" title="Enter your current location or address">
                 </div>
                 <div class="search-field">
                     <label for="restaurant-input">Restaurant</label>
-                    <input type="text" id="restaurant-input" name="restaurant" placeholder="Search restaurant name">
+                    <input type="text" id="restaurant-input" name="restaurant" placeholder="Search restaurant name" title="Type a restaurant name to search">
                 </div>
                 <div class="search-field">
-    <label for="distance-input">Distance</label>
-    <input type="text" id="distance-input" name="distance" placeholder="e.g. 1km, 5km">
-        </div>
-               <a href="results.html" class="search-button" role="button">Search</a>
+                    <label for="distance-input">Distance</label>
+                    <input type="text" id="distance-input" name="distance" placeholder="e.g. 1km, 5km" title="Enter maximum distance in kilometres">
+                </div>
+                <a href="results.html" class="search-button" role="button" title="Click to search for restaurants">Search</a>
             </div>
         </section>
 
         <section class="audio-intro" style="background: white; padding: 20px 30px; margin: 20px 25px; border-radius: 10px; box-shadow: 0 2px 8px rgba(0,0,0,0.08); border-left: 4px solid #e63946;">
             <h3 style="margin-bottom: 10px;">🎧 Listen to our intro</h3>
-            <audio controls aria-label="Website introduction audio">
+            <audio controls aria-label="Website introduction audio" title="Play original audio introduction">
                 <source src="welcome-audio.m4a" type="audio/mp4">
                 Your browser does not support the audio element.
             </audio>
@@ -92,7 +92,7 @@
                     <p class="card-distance">0.6km Away</p>
                     <p class="card-price" aria-label="Price range: moderate">$$</p>
                     <figure>
-                        <img src="burger.jpg" alt="Double beef patty cheeseburger with sesame seed bun, melted cheese, lettuce, and tomato">
+                        <img src="burger.jpg" alt="Double beef patty cheeseburger with sesame seed bun, melted cheese, lettuce, and tomato" title="Double beef patty, melted cheese, fresh lettuce and tomato">
                         <figcaption>Double beef patty, melted cheese, fresh lettuce and tomato</figcaption>
                     </figure>
                 </article>
@@ -108,7 +108,7 @@
                     <p class="card-distance">0.4km Away</p>
                     <p class="card-price" aria-label="Price range: affordable">$</p>
                     <figure>
-                        <img src="burger.jpg" alt="Double beef patty cheeseburger with sesame seed bun, melted cheese, lettuce, and tomato">
+                        <img src="burger.jpg" alt="Double beef patty cheeseburger with sesame seed bun, melted cheese, lettuce, and tomato" title="Double beef patty, melted cheese, fresh toppings">
                         <figcaption>Double beef patty, melted cheese, fresh toppings</figcaption>
                     </figure>
                 </article>
@@ -125,7 +125,7 @@
                     <p class="card-distance">0.5km Away</p>
                     <p class="card-price" aria-label="Price range: affordable">$</p>
                     <figure>
-                        <img src="burger.jpg" alt="Double beef patty cheeseburger with sesame seed bun, melted cheese, lettuce, and tomato">
+                        <img src="burger.jpg" alt="Double beef patty cheeseburger with sesame seed bun, melted cheese, lettuce, and tomato" title="Fresh beef burger with melted cheese and free toppings">
                         <figcaption>Fresh beef burger with melted cheese and free toppings</figcaption>
                     </figure>
                 </article>
@@ -143,7 +143,7 @@
                     <p class="card-distance">0.8km Away</p>
                     <p class="card-price" aria-label="Price range: moderate">$$</p>
                     <figure>
-                        <img src="burger.jpg" alt="Double beef patty cheeseburger with sesame seed bun, melted cheese, lettuce, and tomato">
+                        <img src="burger.jpg" alt="Double beef patty cheeseburger with sesame seed bun, melted cheese, lettuce, and tomato" title="Signature smash burger with double patty and melted cheese">
                         <figcaption>Signature smash burger with double patty and melted cheese</figcaption>
                     </figure>
                 </article>
@@ -177,11 +177,5 @@
             <p>&copy; 2026 Fast Food Burger Locator. All rights reserved.</p>
         </div>
     </footer>
-
-    <script>
-        function updateDistance(val) {
-            document.getElementById('distance-label').textContent = 'Within ' + val + 'km';
-        }
-    </script>
 </body>
 </html>
