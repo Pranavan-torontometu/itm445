@@ -10,9 +10,9 @@
     <a class="skip-link" href="#main-content">Skip to main content</a>
 
     <nav class="navbar" aria-label="Main navigation">
-       <a href="index.html" class="logo-link" aria-label="Fast Food Burger Locator - Home">
-    <img src="logo.png" class="logo-img" alt="Fast Food Burger Locator logo">
-</a>
+        <a href="index.html" class="logo-link" aria-label="Fast Food Burger Locator - Home">
+            <img src="logo.png" class="logo-img" alt="Fast Food Burger Locator logo" title="Fast Food Burger Locator - Home">
+        </a>
         <div class="navlinks">
             <a href="index.html">Home</a>
             <a href="results.html">Find Restaurants</a>
@@ -101,8 +101,7 @@
 
                 <div class="result-reveal" id="result-reveal" aria-live="polite">
                     <figure>
-                        <img src="burger_reveal.jpg" alt="Homemade cheeseburger with golden bun, melted cheese, and BBQ sauce">
-                        <figcaption>Your custom burger, ready to find near you!</figcaption>
+                        <img src="burger_reveal.jpg" alt="Homemade cheeseburger with golden bun, melted cheese, and BBQ sauce" title="Your custom burger — ready to find near you!">
                     </figure>
                     <h3>Your Burger is Ready! 🎉</h3>
                     <p id="result-summary"></p>
@@ -138,6 +137,8 @@
             <p>&copy; 2026 Fast Food Burger Locator. All rights reserved.</p>
         </div>
     </footer>
+
+    <button class="back-to-top" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="Back to top" title="Scroll back to top">↑</button>
 
     <script>
         const selections = { bun: null, patty: null, sauce: null };
