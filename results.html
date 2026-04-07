@@ -11,7 +11,7 @@
 
     <nav class="navbar" aria-label="Main navigation">
         <a href="index.html" class="logo-link" aria-label="Fast Food Burger Locator - Home">
-    <img src="logo.png" class="logo-img" alt="Fast Food Burger Locator logo">
+            <img src="logo.png" class="logo-img" alt="Fast Food Burger Locator logo" title="Fast Food Burger Locator - Home">
         </a>
         <div class="navlinks">
             <a href="index.html">Home</a>
@@ -40,7 +40,7 @@
 
                 <div id="cards-container" role="list">
                     <article class="result-card" role="listitem" data-distance="600" data-price="2" data-rating="3" aria-label="Firefly Burger, 3 stars, 600 metres away, moderate price">
-                        <img src="burger-icon.jpg" class="result-icon" alt="">
+                        <img src="burger-icon.jpg" class="result-icon" alt="" title="Firefly Burger icon">
                         <div class="result-info">
                             <h3>Firefly Burger</h3>
                             <div class="stars" aria-label="3 out of 5 stars">
@@ -58,7 +58,7 @@
                     </article>
 
                     <article class="result-card" role="listitem" data-distance="400" data-price="1" data-rating="3" aria-label="Bodega Burgers, 3 stars, 400 metres away, affordable">
-                        <img src="burger-icon.jpg" class="result-icon" alt="">
+                        <img src="burger-icon.jpg" class="result-icon" alt="" title="Bodega Burgers icon">
                         <div class="result-info">
                             <h3>Bodega Burgers</h3>
                             <div class="stars" aria-label="3 out of 5 stars">
@@ -76,7 +76,7 @@
                     </article>
 
                     <article class="result-card" role="listitem" data-distance="500" data-price="1" data-rating="4" aria-label="Five Guys, 4 stars, 500 metres away, affordable">
-                        <img src="burger-icon.jpg" class="result-icon" alt="">
+                        <img src="burger-icon.jpg" class="result-icon" alt="" title="Five Guys icon">
                         <div class="result-info">
                             <h3>Five Guys</h3>
                             <div class="stars" aria-label="4 out of 5 stars">
@@ -95,7 +95,7 @@
                     </article>
 
                     <article class="result-card" role="listitem" data-distance="800" data-price="2" data-rating="5" aria-label="Jack's Sankofa, 5 stars, 800 metres away, moderate price">
-                        <img src="burger-icon.jpg" class="result-icon" alt="">
+                        <img src="burger-icon.jpg" class="result-icon" alt="" title="Jack's Sankofa icon">
                         <div class="result-info">
                             <h3>Jack's Sankofa</h3>
                             <div class="stars" aria-label="5 out of 5 stars">
@@ -118,7 +118,7 @@
 
             <section class="map" aria-label="Map showing nearby burger restaurants">
                 <figure>
-                    <img src="map.jpg" alt="Map showing four burger restaurants near Toronto Metropolitan University" class="map-image" onclick="alert('Full Google Maps integration coming soon!')">
+                    <img src="map.jpg" alt="Map showing four burger restaurants near Toronto Metropolitan University" title="Map of burger restaurants near TMU campus — click for demo" class="map-image" onclick="alert('Full Google Maps integration coming soon!')">
                     <figcaption>Map of burger restaurants near TMU campus (click for demo)</figcaption>
                 </figure>
             </section>
@@ -151,7 +151,9 @@
         </div>
     </footer>
 
-    <button class="back-to-top" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="Back to top">↑</button>
+    <button class="back-to-top" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="Back to top" title="Scroll back to top">↑</button>
+
+    <div id="sort-announcement" aria-live="polite" aria-atomic="true" style="position:absolute;left:-9999px;"></div>
 
     <script>
         function sortCards(filter) {
@@ -168,6 +170,5 @@
             if (liveRegion) liveRegion.textContent = 'Results sorted by ' + filter;
         }
     </script>
-    <div id="sort-announcement" aria-live="polite" aria-atomic="true" style="position:absolute;left:-9999px;"></div>
 </body>
 </html>
