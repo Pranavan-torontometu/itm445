@@ -272,6 +272,7 @@ footer.footer {
 .search-button:focus { background: #c92f3a; transform: translateY(-2px); }
 
 /* ── SEARCH BAR ── */
+/* ── SEARCH BAR ── */
 .search-bar {
     display: flex;
     gap: 10px;
@@ -365,11 +366,6 @@ input[type="range"]::-webkit-slider-thumb:hover {
 }
 
 input[type="range"]:focus {
-    outline: 3px solid #e63946;
-    outline-offset: 2px;
-}
-
-input[type="range"]:focus-visible {
     outline: 3px solid #e63946;
     outline-offset: 2px;
 }
