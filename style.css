@@ -952,3 +952,56 @@ footer.footer {
     transform: scale(1.01);
     box-shadow: 0 4px 12px rgba(0,0,0,0.12);
 }
+
+/* ── DISTANCE SLIDER ── */
+.distance-slider-field {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    min-width: 160px;
+}
+
+.distance-slider-field label {
+    font-size: 13px;
+    font-weight: bold;
+    color: #444;
+    margin-bottom: 5px;
+}
+
+.distance-value {
+    font-size: 13px;
+    font-weight: bold;
+    color: #e63946;
+    margin-bottom: 6px;
+}
+
+input[type="range"] {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 100%;
+    height: 6px;
+    background: #ddd;
+    border-radius: 3px;
+    outline: none;
+    cursor: pointer;
+}
+
+input[type="range"]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    background: #e63946;
+    cursor: pointer;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+}
+
+input[type="range"]::-webkit-slider-thumb:hover {
+    transform: scale(1.2);
+}
+
+input[type="range"]:focus {
+    outline: 3px solid #e63946;
+    outline-offset: 4px;
+}
