@@ -60,14 +60,10 @@
                     <label for="restaurant-input">Restaurant</label>
                     <input type="text" id="restaurant-input" name="restaurant" placeholder="Search restaurant name">
                 </div>
-                <div class="distance-slider-field">
-                    <label for="distance-slider">Distance</label>
-                    <p class="distance-value" id="distance-label" aria-live="polite">Within 1km</p>
-                    <input type="range" id="distance-slider" name="distance"
-                        min="1" max="10" value="1" step="1"
-                        aria-label="Maximum distance in kilometres"
-                        oninput="updateDistance(this.value)">
-                </div>
+                <div class="search-field">
+    <label for="distance-input">Distance</label>
+    <input type="text" id="distance-input" name="distance" placeholder="e.g. 1km, 5km">
+        </div>
                <a href="results.html" class="search-button" role="button">Search</a>
             </div>
         </section>
