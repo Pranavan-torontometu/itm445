@@ -10,10 +10,9 @@
     <a class="skip-link" href="#main-content">Skip to main content</a>
 
     <nav class="navbar" aria-label="Main navigation">
-      <a href="index.html" class="logo-link" aria-label="Fast Food Burger Locator - Home">
-    <img src="logo.png" class="logo-img" alt="Fast Food Burger Locator logo">
+        <a href="index.html" class="logo-link" aria-label="Fast Food Burger Locator - Home">
+            <img src="logo.png" class="logo-img" alt="Fast Food Burger Locator logo">
         </a>
-
         <div class="navlinks">
             <a href="index.html" class="active" aria-current="page">Home</a>
             <a href="results.html">Find Restaurants</a>
@@ -50,6 +49,7 @@
             }
         </script>
 
+        <!-- SEARCH BAR WITH DISTANCE SLIDER -->
         <section aria-label="Search for restaurants">
             <div class="search-bar" role="search">
                 <div class="search-field">
@@ -60,9 +60,13 @@
                     <label for="restaurant-input">Restaurant</label>
                     <input type="text" id="restaurant-input" name="restaurant" placeholder="Search restaurant name">
                 </div>
-                <div class="search-field">
-                    <label for="distance-input">Distance</label>
-                    <input type="text" id="distance-input" name="distance" placeholder="e.g. 1km, 5km">
+                <div class="distance-slider-field">
+                    <label for="distance-slider">Distance</label>
+                    <p class="distance-value" id="distance-label" aria-live="polite">Within 1km</p>
+                    <input type="range" id="distance-slider" name="distance"
+                        min="1" max="10" value="1" step="1"
+                        aria-label="Maximum distance in kilometres"
+                        oninput="updateDistance(this.value)">
                 </div>
                 <a href="results.html" class="search-button" role="button">Search</a>
             </div>
@@ -177,5 +181,11 @@
             <p>&copy; 2026 Fast Food Burger Locator. All rights reserved.</p>
         </div>
     </footer>
+
+    <script>
+        function updateDistance(val) {
+            document.getElementById('distance-label').textContent = 'Within ' + val + 'km';
+        }
+    </script>
 </body>
 </html>
